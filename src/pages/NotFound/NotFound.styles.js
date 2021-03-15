@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../config/colors';
+import device from '../../config/device';
 
 const HomeLink = styled(Link)`
   border: none;
@@ -20,9 +21,20 @@ const HomeLink = styled(Link)`
   }
 `;
 
+const NotFoundImage = styled.img`
+  max-height: 30rem;
+  @media ${device.laptop} {
+    max-height: 50rem;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  padding-top: 2rem;
+`;
+
 const Container = styled.section`
   padding: 2rem;
   text-align: center;
 `;
 
-export { HomeLink, Container };
+export { HomeLink, Container, ButtonContainer, NotFoundImage };

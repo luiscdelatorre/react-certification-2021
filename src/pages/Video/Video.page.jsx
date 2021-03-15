@@ -37,19 +37,23 @@ const VideoPage = () => {
   useEffect(() => {
     const fetchData = () => {
       YoutubeApi.related(id).then((related) => {
-        setRelatedVideos(related.items);
+        setRelatedVideos(related?.items);
       });
       YoutubeApi.detail(id).then((detail) => {
-        setVideo(detail.items[0]);
-        const { channelId } = detail.items[0].snippet;
-        YoutubeApi.channel(channelId).then((result) => {
-          setChannel(result.items[0]);
-        });
+        if (!detail || detail.items.length < 1) {
+          history.push('/not-found');
+        } else {
+          setVideo(detail.items[0]);
+          const { channelId } = detail.items[0]?.snippet;
+          YoutubeApi.channel(channelId).then((result) => {
+            setChannel(result.items[0]);
+          });
+        }
       });
     };
 
     fetchData();
-  }, [id]);
+  }, [history, id]);
 
   const searchTag = (query) => {
     search(query);
