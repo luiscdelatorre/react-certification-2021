@@ -98,9 +98,40 @@ const MenuHamburger = styled.button`
 
 const Logo = styled(Link)`
   color: inherit;
-  display: inline-block;
-  padding: 0 1rem;
+  display: inline-flex;
+  margin: 0 1rem;
   text-decoration: none;
+  align-items: center;
+  font-family: 'Cabin Condensed', sans-serif;
+  position: relative;
+  span {
+    font-size: 3.3rem;
+  }
+  svg {
+    color: ${(props) => props.theme.logoPrimary};
+    font-size: 3.5rem;
+    margin-right: 0.3rem;
+    z-index: 1;
+  }
+  &::before {
+    content: '';
+    background-color: ${(props) => props.theme.logoSecondary};
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 0;
+  }
+  &::after {
+    content: 'React';
+    display: block;
+    color: ${(props) => props.theme.textSecondary};
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0.1rem;
+    right: 0;
+  }
 `;
 
 const Menu = styled.nav`

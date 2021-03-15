@@ -3,6 +3,7 @@ import {
   IoEnterOutline,
   IoExitOutline,
   IoHomeOutline,
+  IoLogoYoutube,
   IoOptions,
   IoStar,
 } from 'react-icons/io5';
@@ -51,7 +52,8 @@ const Layout = ({ children }) => {
             data-testid="button-menu"
           />
           <Logo to="/">
-            <h3>Brand</h3>
+            <IoLogoYoutube />
+            <span>YuTuv</span>
           </Logo>
         </HeaderLeft>
         <HeaderCenter>
