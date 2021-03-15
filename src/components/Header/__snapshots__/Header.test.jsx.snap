@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Validates Header snapshot 1`] = `
+<header
+  className="sc-crrsfI hfpajh"
+  data-testid="header"
+>
+  <div
+    className="sc-dQppl sc-bqyKva kCOOtL esXmtY"
+  >
+    <button
+      className="sc-fodVxV jyyQih"
+      data-testid="button-menu"
+      onClick={[Function]}
+    />
+    <a
+      className="sc-fFubgz hzapGS"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M508.64 148.79c0-45-33.1-81.2-74-81.2C379.24 65 322.74 64 265 64h-18c-57.6 0-114.2 1-169.6 3.6C36.6 67.6 3.5 104 3.5 149 1 184.59-.06 220.19 0 255.79q-.15 53.4 3.4 106.9c0 45 33.1 81.5 73.9 81.5 58.2 2.7 117.9 3.9 178.6 3.8q91.2.3 178.6-3.8c40.9 0 74-36.5 74-81.5 2.4-35.7 3.5-71.3 3.4-107q.34-53.4-3.26-106.9zM207 353.89v-196.5l145 98.2z"
+        />
+      </svg>
+      <span>
+        YuTuv
+      </span>
+    </a>
+  </div>
+  <div
+    className="sc-dQppl sc-kstrdz kCOOtL flCreu"
+  >
+    <div
+      className="sc-bdfBwQ gmamkS"
+      data-testid="searchbar"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          fill="none"
+          strokeMiterlimit="10"
+          strokeWidth="32"
+        />
+        <path
+          d="M338.29 338.29L448 448"
+          fill="none"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="32"
+        />
+      </svg>
+      <form
+        data-testid="form-search"
+        onSubmit={[Function]}
+      >
+        <input
+          className="sc-gsTCUz eSCwiF"
+          data-testid="input-search"
+          onBlur={[Function]}
+          placeholder="Search"
+          type="search"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    className="sc-dQppl sc-hBEYos kCOOtL cjieSW"
+  >
+    <button
+      className="sc-eCssSg byGTwv"
+      data-testid="user-default-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-50.22 116.82C218.45 151.39 236.28 144 256 144s37.39 7.44 50.11 20.94c12.89 13.68 19.16 32.06 17.68 51.82C320.83 256 290.43 288 256 288s-64.89-32-67.79-71.25c-1.47-19.92 4.79-38.36 17.57-51.93zM256 432a175.49 175.49 0 01-126-53.22 122.91 122.91 0 0135.14-33.44C190.63 329 222.89 320 256 320s65.37 9 90.83 25.34A122.87 122.87 0 01382 378.78 175.45 175.45 0 01256 432z"
+        />
+      </svg>
+    </button>
+  </div>
+</header>
+`;
