@@ -2,22 +2,22 @@
 
 exports[`Layout component Validates Layout snapshot 1`] = `
 <div
-  className="sc-crrsfI kBzXPL"
+  className="sc-fodVxV jarIol"
 >
   <header
-    className="sc-dQppl hIRzVH"
+    className="sc-fFubgz cCCKDk"
     data-testid="header"
   >
     <div
-      className="sc-bqyKva sc-kstrdz dVlxRI buBnca"
+      className="sc-bkzZxe sc-idOhPF euEHQu jVWWK"
     >
       <button
-        className="sc-fFubgz bRZgui"
+        className="sc-dmlrTW dIeEFA"
         data-testid="button-menu"
         onClick={[Function]}
       />
       <a
-        className="sc-bkzZxe bDucIZ"
+        className="sc-kfzAmx gZOyCf"
         href="/"
         onClick={[Function]}
       >
@@ -45,10 +45,10 @@ exports[`Layout component Validates Layout snapshot 1`] = `
       </a>
     </div>
     <div
-      className="sc-bqyKva sc-hBEYos dVlxRI bTIMvA"
+      className="sc-bkzZxe sc-dIUggk euEHQu dvyQWh"
     >
       <div
-        className="sc-bdfBwQ gmamkS"
+        className="sc-jSgupP vTHcJ"
         data-testid="searchbar"
         onClick={[Function]}
       >
@@ -85,7 +85,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
           onSubmit={[Function]}
         >
           <input
-            className="sc-gsTCUz eSCwiF"
+            className="sc-gKsewC eVgPXz"
             data-testid="input-search"
             onBlur={[Function]}
             placeholder="Search"
@@ -95,10 +95,10 @@ exports[`Layout component Validates Layout snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-bqyKva sc-fodVxV dVlxRI ebSHBZ"
+      className="sc-bkzZxe sc-hHftDr euEHQu hpvnxs"
     >
       <button
-        className="sc-eCssSg byGTwv"
+        className="sc-pFZIQ dKlLA-d"
         data-testid="user-default-icon"
         onClick={[Function]}
         type="button"
@@ -125,24 +125,24 @@ exports[`Layout component Validates Layout snapshot 1`] = `
     </div>
   </header>
   <nav
-    className="sc-idOhPF iuTeJk"
+    className="sc-bdfBwQ hEEpsM"
     data-testid="menu"
   >
     <ul
-      className="sc-dIUggk cEXoPP"
+      className="sc-gsTCUz dLjuc"
     >
       <li
-        className="sc-hHftDr bTDXXn"
+        className="sc-dlfnbm cvUCAY"
       >
         <a
           aria-current="page"
-          className="sc-dmlrTW emuAJt active"
+          className="sc-hKgILt kmoA-DQ active"
           href="/"
           onClick={[Function]}
           style={Object {}}
         >
           <div
-            className="sc-kfzAmx bYBNVj"
+            className="sc-eCssSg leTpJ"
           >
             <svg
               fill="currentColor"
@@ -180,11 +180,11 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </a>
       </li>
       <li
-        className="sc-hHftDr bTDXXn"
+        className="sc-dlfnbm cvUCAY"
         disabled={true}
       >
         <div
-          className="sc-kfzAmx bYBNVj"
+          className="sc-eCssSg leTpJ"
         >
           <svg
             fill="currentColor"
@@ -210,11 +210,11 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-hHftDr bTDXXn"
+        className="sc-dlfnbm cvUCAY"
         disabled={true}
       >
         <div
-          className="sc-kfzAmx bYBNVj"
+          className="sc-eCssSg leTpJ"
         >
           <svg
             fill="currentColor"
@@ -240,16 +240,16 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-hHftDr bTDXXn"
+        className="sc-dlfnbm cvUCAY"
       >
         <a
           aria-current={null}
-          className="sc-dmlrTW emuAJt"
+          className="sc-hKgILt kmoA-DQ"
           href="/login"
           onClick={[Function]}
         >
           <div
-            className="sc-kfzAmx bYBNVj"
+            className="sc-eCssSg leTpJ"
           >
             <svg
               fill="currentColor"
