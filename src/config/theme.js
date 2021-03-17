@@ -9,6 +9,8 @@ const commonTheme = {
   logoPrimary: colors.purple400,
   logoSecondary: colors.gray100,
   link: colors.blue400,
+  active: colors.green400,
+  activeDark: colors.green900,
   tagBackground: colors.orange400,
   tagText: colors.gray100,
   transitionDefault: 'all 200ms ease 0ms',
@@ -33,6 +35,8 @@ const light = {
   menuButtonActive: colors.purple900,
   tagSecondaryBackground: colors.purple900,
   tagSecondaryText: colors.gray300,
+  buttonSecondary: colors.gray200,
+  buttonSecondaryText: colors.gray400,
 };
 
 const dark = {
@@ -53,6 +57,8 @@ const dark = {
   menuButtonActive: colors.gray100,
   tagSecondaryBackground: colors.purple900,
   tagSecondaryText: colors.blue400,
+  buttonSecondary: colors.gray700,
+  buttonSecondaryText: colors.gray500,
 };
 
 export const theme = { light, dark };
