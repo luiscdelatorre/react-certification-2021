@@ -2,22 +2,22 @@
 
 exports[`Layout component Validates Layout snapshot 1`] = `
 <div
-  className="sc-kfzAmx gFVimf"
+  className="sc-bBXqnf ghzBOh"
 >
   <header
-    className="sc-crrsfI hfpajh"
+    className="sc-bqyKva eLTgSa"
     data-testid="header"
   >
     <div
-      className="sc-dQppl sc-bqyKva kCOOtL esXmtY"
+      className="sc-kstrdz sc-hBEYos jqiJcG iZrsmI"
     >
       <button
-        className="sc-fodVxV jyyQih"
+        className="sc-bkzZxe cydJKc"
         data-testid="button-menu"
         onClick={[Function]}
       />
       <a
-        className="sc-fFubgz hzapGS"
+        className="sc-idOhPF gjqHGj"
         href="/"
         onClick={[Function]}
       >
@@ -45,10 +45,10 @@ exports[`Layout component Validates Layout snapshot 1`] = `
       </a>
     </div>
     <div
-      className="sc-dQppl sc-kstrdz kCOOtL flCreu"
+      className="sc-kstrdz sc-fodVxV jqiJcG dnhjTT"
     >
       <div
-        className="sc-bdfBwQ gmamkS"
+        className="sc-bdfBwQ IehhA"
         data-testid="searchbar"
         onClick={[Function]}
       >
@@ -85,7 +85,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
           onSubmit={[Function]}
         >
           <input
-            className="sc-gsTCUz eSCwiF"
+            className="sc-gsTCUz cbydbz"
             data-testid="input-search"
             onBlur={[Function]}
             placeholder="Search"
@@ -95,10 +95,10 @@ exports[`Layout component Validates Layout snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-dQppl sc-hBEYos kCOOtL cjieSW"
+      className="sc-kstrdz sc-fFubgz jqiJcG bBSCrS"
     >
       <button
-        className="sc-eCssSg byGTwv"
+        className="sc-eCssSg dmXmZP"
         data-testid="user-default-icon"
         onClick={[Function]}
         type="button"
@@ -125,24 +125,24 @@ exports[`Layout component Validates Layout snapshot 1`] = `
     </div>
   </header>
   <nav
-    className="sc-bkzZxe kKFBIw"
+    className="sc-dIUggk eGECWV"
     data-testid="menu"
   >
     <ul
-      className="sc-idOhPF dzhzwQ"
+      className="sc-hHftDr cWQTjQ"
     >
       <li
-        className="sc-dIUggk kSCaKw"
+        className="sc-dmlrTW iegcKZ"
       >
         <a
           aria-current="page"
-          className="sc-hHftDr cChRDl active"
+          className="sc-kfzAmx kNXHxD active"
           href="/"
           onClick={[Function]}
           style={Object {}}
         >
           <div
-            className="sc-dmlrTW bSJGUT"
+            className="sc-fKFyDc jBdJLp"
           >
             <svg
               fill="currentColor"
@@ -180,11 +180,11 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </a>
       </li>
       <li
-        className="sc-dIUggk kSCaKw"
+        className="sc-dmlrTW iegcKZ"
         disabled={true}
       >
         <div
-          className="sc-dmlrTW bSJGUT"
+          className="sc-fKFyDc jBdJLp"
         >
           <svg
             fill="currentColor"
@@ -210,11 +210,11 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-dIUggk kSCaKw"
+        className="sc-dmlrTW iegcKZ"
         disabled={true}
       >
         <div
-          className="sc-dmlrTW bSJGUT"
+          className="sc-fKFyDc jBdJLp"
         >
           <svg
             fill="currentColor"
@@ -240,16 +240,16 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-dIUggk kSCaKw"
+        className="sc-dmlrTW iegcKZ"
       >
         <a
           aria-current={null}
-          className="sc-hHftDr cChRDl"
+          className="sc-kfzAmx kNXHxD"
           href="/login"
           onClick={[Function]}
         >
           <div
-            className="sc-dmlrTW bSJGUT"
+            className="sc-fKFyDc jBdJLp"
           >
             <svg
               fill="currentColor"
@@ -289,7 +289,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
     </ul>
   </nav>
   <main
-    className="sc-fKFyDc SBWAZ"
+    className="sc-iwyYcG gGbbzn"
     data-testid="main-content"
   />
 </div>
