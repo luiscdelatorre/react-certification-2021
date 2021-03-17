@@ -2,7 +2,7 @@ import React from 'react';
 import { IoLogoYoutube } from 'react-icons/io5';
 
 import Searchbar from '../Searchbar';
-import UserImage from '../UserImage';
+import User from '../User';
 import {
   HeaderCenter,
   HeaderContainer,
@@ -34,7 +34,7 @@ const Header = ({ isMenuExpanded, onToggleMenu }) => {
         <Searchbar />
       </HeaderCenter>
       <HeaderRight>
-        <UserImage />
+        <User />
       </HeaderRight>
     </HeaderContainer>
   );

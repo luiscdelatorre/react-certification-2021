@@ -2,19 +2,19 @@
 
 exports[`Header component Validates Header snapshot 1`] = `
 <header
-  className="sc-crrsfI hfpajh"
+  className="sc-bqyKva llbqAk"
   data-testid="header"
 >
   <div
-    className="sc-dQppl sc-bqyKva kCOOtL esXmtY"
+    className="sc-kstrdz sc-hBEYos jqiJcG iZrsmI"
   >
     <button
-      className="sc-fodVxV jyyQih"
+      className="sc-bkzZxe deHug"
       data-testid="button-menu"
       onClick={[Function]}
     />
     <a
-      className="sc-fFubgz hzapGS"
+      className="sc-idOhPF gCEokI"
       href="/"
       onClick={[Function]}
     >
@@ -42,7 +42,7 @@ exports[`Header component Validates Header snapshot 1`] = `
     </a>
   </div>
   <div
-    className="sc-dQppl sc-kstrdz kCOOtL flCreu"
+    className="sc-kstrdz sc-fodVxV jqiJcG dnhjTT"
   >
     <div
       className="sc-bdfBwQ gmamkS"
@@ -92,7 +92,7 @@ exports[`Header component Validates Header snapshot 1`] = `
     </div>
   </div>
   <div
-    className="sc-dQppl sc-hBEYos kCOOtL cjieSW"
+    className="sc-kstrdz sc-fFubgz jqiJcG bBSCrS"
   >
     <button
       className="sc-eCssSg byGTwv"

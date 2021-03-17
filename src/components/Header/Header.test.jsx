@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import AuthProvider from '../../providers/Auth';
+import OptionsProvider from '../../providers/Options/Options.provider';
 import SearchProvider from '../../providers/Search';
 import Header from './Header.component';
 
@@ -14,12 +15,14 @@ describe('Header component', () => {
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <Header
-              isMenuExpanded={isExpanded}
-              onToggleMenu={() => {
-                isExpanded = !isExpanded;
-              }}
-            />
+            <OptionsProvider>
+              <Header
+                isMenuExpanded={isExpanded}
+                onToggleMenu={() => {
+                  isExpanded = !isExpanded;
+                }}
+              />
+            </OptionsProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
@@ -32,7 +35,9 @@ describe('Header component', () => {
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <Header isMenuExpanded={isExpanded} onToggleMenu={() => {}} />
+            <OptionsProvider>
+              <Header isMenuExpanded={isExpanded} onToggleMenu={() => {}} />
+            </OptionsProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
@@ -45,7 +50,9 @@ describe('Header component', () => {
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <Header isMenuExpanded={false} onToggleMenu={() => {}} />
+            <OptionsProvider>
+              <Header isMenuExpanded={false} onToggleMenu={() => {}} />
+            </OptionsProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
