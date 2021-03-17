@@ -3,6 +3,7 @@ import { IoWifi } from 'react-icons/io5';
 import { useHistory, useParams } from 'react-router';
 import { YoutubeApi } from '../../api/youtube';
 import RecomendedCard from '../../components/RecomendedCard';
+import { useOptions } from '../../providers/Options/Options.provider';
 import { useSearch } from '../../providers/Search';
 import { formatDate } from '../../utils/fns';
 import {
@@ -23,6 +24,7 @@ import {
   ChannelSubtitle,
   BroadcastContent,
   ChannelTitle,
+  AutoplayStatus,
 } from './Video.styles';
 
 const VideoPage = () => {
@@ -30,14 +32,14 @@ const VideoPage = () => {
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [video, setVideo] = useState({});
   const [channel, setChannel] = useState({});
+  const { state, setAutoplay } = useOptions();
   const { search } = useSearch();
   const history = useHistory();
-  const autoplay = 1;
 
   useEffect(() => {
     const fetchData = () => {
       YoutubeApi.related(id).then((related) => {
-        setRelatedVideos(related?.items);
+        setRelatedVideos(related?.items || []);
       });
       YoutubeApi.detail(id).then((detail) => {
         if (!detail || detail.items.length < 1) {
@@ -60,6 +62,10 @@ const VideoPage = () => {
     history.push('/');
   };
 
+  const toggleAutoplay = () => {
+    setAutoplay(!state.autoplay);
+  };
+
   return (
     <Container>
       <VideoContainer>
@@ -67,7 +73,9 @@ const VideoPage = () => {
           <VideoPlayer
             data-testid="video-player"
             title="video"
-            src={`https://www.youtube.com/embed/${id}?autoplay=${autoplay}`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=${
+              state.autoplay ? 1 : 0
+            }`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -85,6 +93,10 @@ const VideoPage = () => {
           <h2>{video.snippet?.title}</h2>
           <VideoData>{video.statistics?.viewCount} Views</VideoData>
           <VideoData>{formatDate(video.snippet?.publishedAt)}</VideoData>
+          <VideoData data-testid="autoplay" onClick={toggleAutoplay}>
+            <AutoplayStatus active={state.autoplay} />
+            Autoplay
+          </VideoData>
           <TagList>
             {video.snippet?.tags?.map((tag) => {
               return (
