@@ -7,9 +7,15 @@ File                            |  % Stmts | % Branch |  % Funcs |  % Lines |Unc
   youtube.js                    |      100 |      100 |      100 |      100 |                |
  src/components/App/            |      100 |      100 |      100 |      100 |                |
   App.component.jsx             |      100 |      100 |      100 |      100 |                |
+ src/components/Header/         |      100 |      100 |      100 |      100 |                |
+  Header.component.jsx          |      100 |      100 |      100 |      100 |                |
+  Header.styles.js              |      100 |      100 |      100 |      100 |                |
  src/components/Layout/         |      100 |      100 |      100 |      100 |                |
   Layout.component.jsx          |      100 |      100 |      100 |      100 |                |
   Layout.styles.js              |      100 |      100 |      100 |      100 |                |
+ src/components/Menu/           |      100 |      100 |      100 |      100 |                |
+  Menu.component.jsx            |      100 |      100 |      100 |      100 |                |
+  Menu.styles.js                |      100 |      100 |      100 |      100 |                |
  src/components/Popup/          |      100 |      100 |      100 |      100 |                |
   Popup.component.jsx           |      100 |      100 |      100 |      100 |                |
   Popup.styles.js               |      100 |      100 |      100 |      100 |                |
@@ -21,9 +27,9 @@ File                            |  % Stmts | % Branch |  % Funcs |  % Lines |Unc
  src/components/Searchbar/      |      100 |      100 |      100 |      100 |                |
   Searchbar.component.jsx       |      100 |      100 |      100 |      100 |                |
   Searchbar.styles.js           |      100 |      100 |      100 |      100 |                |
- src/components/UserImage/      |      100 |      100 |      100 |      100 |                |
-  UserImage.component.jsx       |      100 |      100 |      100 |      100 |                |
-  UserImage.styles.js           |      100 |      100 |      100 |      100 |                |
+ src/components/User/           |      100 |      100 |      100 |      100 |                |
+  User.component.jsx            |      100 |      100 |      100 |      100 |                |
+  User.styles.js                |      100 |      100 |      100 |      100 |                |
  src/components/VideoCard/      |      100 |      100 |      100 |      100 |                |
   VideoCard.component.jsx       |      100 |      100 |      100 |      100 |                |
   VideoCard.styles.js           |      100 |      100 |      100 |      100 |                |
@@ -44,6 +50,9 @@ File                            |  % Stmts | % Branch |  % Funcs |  % Lines |Unc
   Video.styles.js               |      100 |      100 |      100 |      100 |                |
  src/providers/Auth/            |      100 |      100 |      100 |      100 |                |
   Auth.provider.jsx             |      100 |      100 |      100 |      100 |                |
+ src/providers/Options/         |      100 |      100 |      100 |      100 |                |
+  Options.provider.jsx          |      100 |      100 |      100 |      100 |                |
+  Options.reducer.js            |      100 |      100 |      100 |      100 |                |
  src/providers/Search/          |      100 |      100 |      100 |      100 |                |
   Search.provider.jsx           |      100 |      100 |      100 |      100 |                |
  src/utils/                     |      100 |      100 |      100 |      100 |                |
