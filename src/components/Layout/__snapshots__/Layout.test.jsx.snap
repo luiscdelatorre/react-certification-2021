@@ -2,7 +2,7 @@
 
 exports[`Layout component Validates Layout snapshot 1`] = `
 <div
-  className="sc-bBXqnf ghzBOh"
+  className="sc-bBXqnf bfBuWm"
 >
   <header
     className="sc-bqyKva eLTgSa"
@@ -12,7 +12,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
       className="sc-kstrdz sc-hBEYos jqiJcG iZrsmI"
     >
       <button
-        className="sc-bkzZxe cydJKc"
+        className="sc-bkzZxe bWcthh"
         data-testid="button-menu"
         onClick={[Function]}
       />
@@ -142,7 +142,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
           style={Object {}}
         >
           <div
-            className="sc-fKFyDc jBdJLp"
+            className="sc-fKFyDc YyfNX"
           >
             <svg
               fill="currentColor"
@@ -184,7 +184,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         disabled={true}
       >
         <div
-          className="sc-fKFyDc jBdJLp"
+          className="sc-fKFyDc YyfNX"
         >
           <svg
             fill="currentColor"
@@ -214,7 +214,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         disabled={true}
       >
         <div
-          className="sc-fKFyDc jBdJLp"
+          className="sc-fKFyDc YyfNX"
         >
           <svg
             fill="currentColor"
@@ -249,7 +249,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
           onClick={[Function]}
         >
           <div
-            className="sc-fKFyDc jBdJLp"
+            className="sc-fKFyDc YyfNX"
           >
             <svg
               fill="currentColor"

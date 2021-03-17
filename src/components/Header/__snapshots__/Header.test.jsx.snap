@@ -9,7 +9,7 @@ exports[`Header component Validates Header snapshot 1`] = `
     className="sc-kstrdz sc-hBEYos jqiJcG iZrsmI"
   >
     <button
-      className="sc-bkzZxe deHug"
+      className="sc-bkzZxe FxGEV"
       data-testid="button-menu"
       onClick={[Function]}
     />

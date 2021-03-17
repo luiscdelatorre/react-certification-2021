@@ -13,6 +13,8 @@ const OptionsReducer = (state, action) => {
       return { ...state, ...{ currentTheme, theme: action.theme } };
     case 'SET_AUTOPLAY':
       return { ...state, autoplay: action.autoplay };
+    case 'SET_MENU':
+      return { ...state, menuCompact: action.menuCompact };
     default:
       return state;
   }

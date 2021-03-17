@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoLogoYoutube } from 'react-icons/io5';
+import { useOptions } from '../../providers/Options/Options.provider';
 
 import Searchbar from '../Searchbar';
 import User from '../User';
@@ -12,16 +13,18 @@ import {
   MenuHamburger,
 } from './Header.styles';
 
-const Header = ({ isMenuExpanded, onToggleMenu }) => {
+const Header = () => {
+  const { state, setMenu } = useOptions();
+
   const toggleMenu = () => {
-    onToggleMenu();
+    setMenu(!state.menuCompact);
   };
 
   return (
     <HeaderContainer data-testid="header">
       <HeaderLeft>
         <MenuHamburger
-          isMenuExpanded={isMenuExpanded}
+          isMenuExpanded={!state.menuCompact}
           onClick={toggleMenu}
           data-testid="button-menu"
         />

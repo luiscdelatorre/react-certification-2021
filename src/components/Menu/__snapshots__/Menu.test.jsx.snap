@@ -19,7 +19,7 @@ exports[`Menu Component Validates Menu snapshot 1`] = `
         style={Object {}}
       >
         <div
-          className="sc-eCssSg leTpJ"
+          className="sc-eCssSg hMCHXn"
         >
           <svg
             fill="currentColor"
@@ -61,7 +61,7 @@ exports[`Menu Component Validates Menu snapshot 1`] = `
       disabled={true}
     >
       <div
-        className="sc-eCssSg leTpJ"
+        className="sc-eCssSg hMCHXn"
       >
         <svg
           fill="currentColor"
@@ -91,7 +91,7 @@ exports[`Menu Component Validates Menu snapshot 1`] = `
       disabled={true}
     >
       <div
-        className="sc-eCssSg leTpJ"
+        className="sc-eCssSg hMCHXn"
       >
         <svg
           fill="currentColor"
@@ -126,7 +126,7 @@ exports[`Menu Component Validates Menu snapshot 1`] = `
         onClick={[Function]}
       >
         <div
-          className="sc-eCssSg leTpJ"
+          className="sc-eCssSg hMCHXn"
         >
           <svg
             fill="currentColor"

@@ -8,11 +8,13 @@ import {
 } from 'react-icons/io5';
 import { useHistory } from 'react-router';
 import { useAuth } from '../../providers/Auth';
+import { useOptions } from '../../providers/Options/Options.provider';
 import { MenuContainer, MenuIcon, MenuItem, MenuLink, MenuList } from './Menu.styles';
 
-const Menu = ({ isExpanded }) => {
+const Menu = () => {
   const history = useHistory();
   const { authenticated, logout } = useAuth();
+  const { state } = useOptions();
 
   const deAuthenticate = (event) => {
     event.preventDefault();
@@ -25,20 +27,20 @@ const Menu = ({ isExpanded }) => {
       <MenuList>
         <MenuItem>
           <MenuLink to="/" exact>
-            <MenuIcon isExpanded={isExpanded}>
+            <MenuIcon isExpanded={!state.menuCompact}>
               <IoHomeOutline />
               <span>Home</span>
             </MenuIcon>
           </MenuLink>
         </MenuItem>
         <MenuItem disabled>
-          <MenuIcon isExpanded={isExpanded}>
+          <MenuIcon isExpanded={!state.menuCompact}>
             <IoStar />
             <span>Favorites</span>
           </MenuIcon>
         </MenuItem>
         <MenuItem disabled>
-          <MenuIcon isExpanded={isExpanded}>
+          <MenuIcon isExpanded={!state.menuCompact}>
             <IoOptions />
             <span>Options</span>
           </MenuIcon>
@@ -51,14 +53,14 @@ const Menu = ({ isExpanded }) => {
               onClick={deAuthenticate}
               data-testid="button-logout"
             >
-              <MenuIcon isExpanded={isExpanded}>
+              <MenuIcon isExpanded={!state.menuCompact}>
                 <IoExitOutline />
                 <span>Logout</span>
               </MenuIcon>
             </MenuLink>
           ) : (
             <MenuLink to="/login" exact>
-              <MenuIcon isExpanded={isExpanded}>
+              <MenuIcon isExpanded={!state.menuCompact}>
                 <IoEnterOutline />
                 <span>Login</span>
               </MenuIcon>

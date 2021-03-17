@@ -9,19 +9,12 @@ import Header from './Header.component';
 
 describe('Header component', () => {
   it('Should expand menu size on menu button click', () => {
-    let isExpanded = false;
-
     const { rerender } = render(
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
             <OptionsProvider>
-              <Header
-                isMenuExpanded={isExpanded}
-                onToggleMenu={() => {
-                  isExpanded = !isExpanded;
-                }}
-              />
+              <Header />
             </OptionsProvider>
           </SearchProvider>
         </AuthProvider>
@@ -36,7 +29,7 @@ describe('Header component', () => {
         <AuthProvider>
           <SearchProvider>
             <OptionsProvider>
-              <Header isMenuExpanded={isExpanded} onToggleMenu={() => {}} />
+              <Header />
             </OptionsProvider>
           </SearchProvider>
         </AuthProvider>
@@ -51,7 +44,7 @@ describe('Header component', () => {
         <AuthProvider>
           <SearchProvider>
             <OptionsProvider>
-              <Header isMenuExpanded={false} onToggleMenu={() => {}} />
+              <Header />
             </OptionsProvider>
           </SearchProvider>
         </AuthProvider>

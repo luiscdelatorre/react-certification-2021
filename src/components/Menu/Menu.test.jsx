@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import AuthProvider from '../../providers/Auth';
+import OptionsProvider from '../../providers/Options/Options.provider';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
 import { storage } from '../../utils/storage';
 import Menu from './Menu.component';
@@ -12,7 +13,9 @@ describe('Menu Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Menu isExpanded={false} />
+          <OptionsProvider>
+            <Menu />
+          </OptionsProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -31,7 +34,9 @@ describe('Menu Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Menu isExpanded={false} />
+          <OptionsProvider>
+            <Menu />
+          </OptionsProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -49,7 +54,9 @@ describe('Menu Component', () => {
     const component = renderer.create(
       <BrowserRouter>
         <AuthProvider>
-          <Menu isExpanded={false} />
+          <OptionsProvider>
+            <Menu />
+          </OptionsProvider>
         </AuthProvider>
       </BrowserRouter>
     );
