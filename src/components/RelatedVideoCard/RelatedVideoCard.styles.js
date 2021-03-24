@@ -18,7 +18,7 @@ const Card = styled(Link)`
   }
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   position: relative;
   max-width: 50%;
   @media ${device.laptop} {
@@ -84,4 +84,6 @@ const Subtitle = styled.h6`
   }
 `;
 
-export { Card, Header, Content, Tag, Title, Subtitle };
+const Styled = { Card, Header, Content, Tag, Title, Subtitle };
+
+export default Styled;
