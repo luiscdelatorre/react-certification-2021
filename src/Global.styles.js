@@ -142,49 +142,82 @@ img{
 }
 
 @keyframes button-animation {
-    0% {
-      transform: scale(0.95, 0.95);
-    }
-    60% {
-      transform: scale(1.1, 1.1);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
+  0% {
+    transform: scale(0.95, 0.95);
   }
+  60% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
-  @keyframes menu-button-animation {
-    0% {
-      transform: scale(1, 0);
-    }
-    60% {
-      transform: scale(1, 1.2);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
+@keyframes menu-button-animation {
+  0% {
+    transform: scale(1, 0);
   }
+  60% {
+    transform: scale(1, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
-  @keyframes popup-animation-enter {
-    0% {
-      transform: scale(1, 0);
-    }
-    80% {
-      transform: scale(1, 1.1);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
+@keyframes popup-animation-enter {
+  0% {
+    transform: scale(1, 0);
   }
+  80% {
+    transform: scale(1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
-  @keyframes popup-animation-exit {
-    0% {
-      transform: scale(1, 1);
-    }
-    100% {
-      transform: scale(1, 0);
-    }
+@keyframes popup-animation-exit {
+  0% {
+    transform: scale(1, 1);
   }
+  80% {
+    transform: scale(1, 1.1);
+  }
+  100% {
+    transform: scale(1, 0);
+  }
+}
+
+@keyframes submenu-animation-enter {
+  0% {
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(0, 0.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes submenu-animation-exit {
+  0% {
+    position: absolute;
+    top: 0;
+    transform: scale3d(1, 1);
+  }
+  50% {
+    position: absolute;
+    top: 0;
+    transform: scale(0, 0.5);
+  }
+  100% {
+    position: absolute;
+    top: 0;
+    transform: scale(0, 0);
+  }
+}
 `;
 
 export default GlobalStyles;

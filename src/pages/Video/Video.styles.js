@@ -141,6 +141,31 @@ const Description = styled.p`
   }
 `;
 
+const AutoplayStatus = styled.span`
+  display: inline-block;
+  cursor: pointer;
+  width: 3rem;
+  height: 1.4rem;
+  border-radius: ${(props) => props.theme.borderRadiusSm};
+  vertical-align: bottom;
+  margin-right: 0.5rem;
+  background-color: ${(props) => props.theme.buttonSecondary};
+  position: relative;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: ${(props) =>
+      props.active ? props.theme.tagBackground : props.theme.buttonSecondaryText};
+    position: absolute;
+    top: -0.1rem;
+    left: ${(props) => (props.active ? '1.4rem' : '0')};
+    transition: ${(props) => props.theme.transitionFast};
+  }
+`;
+
 export {
   Container,
   VideoContainer,
@@ -159,4 +184,5 @@ export {
   ChannelTitle,
   ChannelSubtitle,
   BroadcastContent,
+  AutoplayStatus,
 };

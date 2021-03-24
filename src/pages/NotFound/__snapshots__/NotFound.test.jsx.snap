@@ -2,13 +2,25 @@
 
 exports[`Not Found Page Validates NotFound snapshot 1`] = `
 <section
-  className="sc-gsTCUz kbmOXd"
+  className="sc-hKgILt gQCOKE"
 >
+  <h1>
+    Uh oh! :(
+  </h1>
   <img
     alt="page not found"
-    src="/404.gif"
+    className="sc-gsTCUz dvhqNH"
+    src="404.png"
   />
-  <div>
+  <h2>
+    This page doesn't exist or the server has amxiety.
+  </h2>
+  <div
+    className="sc-dlfnbm kuhEsh"
+  >
+    <h4>
+      Try again later or 
+    </h4>
     <a
       className="sc-bdfBwQ egxGcN"
       href="/"

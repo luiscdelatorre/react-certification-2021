@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Component Validates Menu snapshot 1`] = `
+<nav
+  className="sc-bdfBwQ hEEpsM"
+  data-testid="menu"
+>
+  <ul
+    className="sc-gsTCUz dLjuc"
+  >
+    <li
+      className="sc-dlfnbm cvUCAY"
+    >
+      <a
+        aria-current="page"
+        className="sc-hKgILt kmoA-DQ active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <div
+          className="sc-eCssSg hMCHXn"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
+            />
+            <path
+              d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256m368-77V64h-48v69"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
+            />
+          </svg>
+          <span>
+            Home
+          </span>
+        </div>
+      </a>
+    </li>
+    <li
+      className="sc-dlfnbm cvUCAY"
+      disabled={true}
+    >
+      <div
+        className="sc-eCssSg hMCHXn"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z"
+          />
+        </svg>
+        <span>
+          Favorites
+        </span>
+      </div>
+    </li>
+    <li
+      className="sc-dlfnbm cvUCAY"
+      disabled={true}
+    >
+      <div
+        className="sc-eCssSg hMCHXn"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 144h226.75a48 48 0 0090.5 0H448a16 16 0 000-32h-66.75a48 48 0 00-90.5 0H64a16 16 0 000 32zm384 224h-66.75a48 48 0 00-90.5 0H64a16 16 0 000 32h226.75a48 48 0 0090.5 0H448a16 16 0 000-32zm0-128H221.25a48 48 0 00-90.5 0H64a16 16 0 000 32h66.75a48 48 0 0090.5 0H448a16 16 0 000-32z"
+          />
+        </svg>
+        <span>
+          Options
+        </span>
+      </div>
+    </li>
+    <li
+      className="sc-dlfnbm cvUCAY"
+    >
+      <a
+        aria-current={null}
+        className="sc-hKgILt kmoA-DQ"
+        href="/login"
+        onClick={[Function]}
+      >
+        <div
+          className="sc-eCssSg hMCHXn"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M176 176v-40a40 40 0 0140-40h208a40 40 0 0140 40v240a40 40 0 01-40 40H216a40 40 0 01-40-40v-40"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
+            />
+            <path
+              d="M272 336l80-80-80-80M48 256h288"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="32"
+            />
+          </svg>
+          <span>
+            Login
+          </span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

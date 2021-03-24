@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../config/colors';
 
-const User = styled.button`
+const UserImage = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,20 @@ const User = styled.button`
 const Container = styled.div`
   padding: 2rem;
   width: 300px;
+  animation-timing-function: ease;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+
+  animation-name: ${({ state }) => {
+    switch (state) {
+      case 'entering':
+        return 'submenu-animation-enter';
+      case 'exiting':
+        return 'submenu-animation-exit';
+      default:
+        return '';
+    }
+  }};
 `;
 
 const Header = styled.div`
@@ -40,6 +54,7 @@ const Header = styled.div`
 
 const Content = styled.div`
   margin: 0 -2rem;
+  position: relative;
 `;
 
 const OptionsList = styled.ul`
@@ -65,7 +80,6 @@ const OptionsListItem = styled.li`
   }
   &:hover {
     color: ${colors.gray100};
-
     &::before {
       background-color: ${(props) => props.theme.primary};
       animation-name: menu-button-animation;
@@ -137,8 +151,28 @@ const CloseButton = styled.button`
   }
 `;
 
+const HeaderButton = styled.button`
+  color: ${(props) => props.theme.text};
+  font-size: 1.6rem;
+  padding: 0;
+  svg {
+    font-size: 2rem;
+    margin-right: 2rem;
+    vertical-align: sub;
+  }
+`;
+
+const ActiveTheme = styled.span`
+  display: inline-block;
+  height: 1.1rem;
+  width: 1.1rem;
+  border-radius: ${(props) => props.theme.borderRadius};
+  background-color: ${(props) => props.theme.active};
+  margin-left: 1rem;
+`;
+
 export {
-  User,
+  UserImage,
   Container,
   Header,
   Content,
@@ -147,4 +181,6 @@ export {
   OptionsLink,
   OptionsButton,
   CloseButton,
+  HeaderButton,
+  ActiveTheme,
 };
