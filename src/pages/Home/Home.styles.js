@@ -13,7 +13,7 @@ const CardList = styled.ul`
   margin: 0 -1rem;
 `;
 
-const Card = styled.li`
+const CardListItem = styled.li`
   padding: 1rem;
   width: 100%;
   @media ${device.mobileMd} {
@@ -33,7 +33,7 @@ const Card = styled.li`
   }
 `;
 
-const Header = styled.header`
+const Hero = styled.div`
   background-color: ${(props) => props.theme.heroBackground};
   margin-bottom: 2rem;
   text-align: center;
@@ -59,6 +59,9 @@ const ButtonLink = styled(Link)`
   font-weight: 700;
   padding: 2rem 3rem;
   text-decoration: none;
+  margin: 0 1rem;
+  min-width: 17rem;
+  transition: ${(props) => props.theme.transitionDefault};
   @media ${device.onlySm} {
     margin-bottom: 2rem;
   }
@@ -74,6 +77,9 @@ const ButtonLinkInfo = styled(ButtonLink)`
   color: ${colors.blue400};
   border-radius: ${(props) => props.theme.borderRadiusLg};
   margin-left: 1rem;
+  &:hover {
+    box-shadow: 0px 0px 10px -2px ${colors.purple900};
+  }
 `;
 
 const ButtonLinkWarning = styled(ButtonLink)`
@@ -81,14 +87,24 @@ const ButtonLinkWarning = styled(ButtonLink)`
   color: ${colors.gray100};
   border-radius: ${(props) => props.theme.borderRadiusLg};
   margin-right: 1rem;
+  &:hover {
+    box-shadow: 0px 0px 10px -2px ${colors.orange400};
+  }
 `;
 
-export {
+const Error = styled.h3`
+  color: ${(props) => props.theme.danger};
+`;
+
+const Styled = {
   Container,
   CardList,
-  Card,
-  Header,
+  CardListItem,
+  Hero,
   ButtonsContainer,
   ButtonLinkInfo,
   ButtonLinkWarning,
+  Error,
 };
+
+export default Styled;

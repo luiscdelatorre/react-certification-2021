@@ -8,6 +8,7 @@ import SearchProvider from '../../providers/Search';
 import searchResult from '../../mock/youtube-videos-mock.json';
 import { storage } from '../../utils/storage';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import SessionDataProvider from '../../providers/SessionData/SessionData.provider';
 
 jest.mock('axios');
 
@@ -27,9 +28,11 @@ describe('Home Page', () => {
       render(
         <BrowserRouter>
           <AuthProvider>
-            <SearchProvider>
-              <HomePage />
-            </SearchProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <HomePage />
+              </SearchProvider>
+            </SessionDataProvider>
           </AuthProvider>
         </BrowserRouter>
       );
@@ -49,9 +52,11 @@ describe('Home Page', () => {
       render(
         <BrowserRouter>
           <AuthProvider>
-            <SearchProvider>
-              <HomePage />
-            </SearchProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <HomePage />
+              </SearchProvider>
+            </SessionDataProvider>
           </AuthProvider>
         </BrowserRouter>
       );
@@ -61,6 +66,31 @@ describe('Home Page', () => {
       searchResult.items.length
     );
     expect(screen.queryByTestId('login-button')).toBeFalsy();
-    expect(screen.queryByTestId('secret-button')).toBeInTheDocument();
+    expect(screen.queryByTestId('favorites-button')).toBeInTheDocument();
+    expect(screen.queryByTestId('trending-button')).toBeInTheDocument();
+  });
+
+  it('Should display quota error', async () => {
+    axios.get.mockRejectedValue({});
+
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <AuthProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <HomePage />
+              </SearchProvider>
+            </SessionDataProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      );
+    });
+
+    expect(
+      screen.queryByText(
+        'The request cannot be completed because you have exceeded your quota. Please try again later.'
+      )
+    ).toBeInTheDocument();
   });
 });
