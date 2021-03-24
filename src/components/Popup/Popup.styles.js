@@ -32,7 +32,7 @@ const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 20%);
+  background-color: rgba(0, 0, 0, 5%);
 
   transition: ${(props) => props.theme.transitionDefault};
   opacity: ${({ state }) => {
@@ -47,4 +47,6 @@ const Backdrop = styled.div`
   z-index: 100;
 `;
 
-export { PopupContainer, Backdrop };
+const Styled = { PopupContainer, Backdrop };
+
+export default Styled;

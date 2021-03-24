@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import { Backdrop, PopupContainer } from './Popup.styles';
+import Styled from './Popup.styles';
 
 const Popup = ({ children, visible, onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(visible || false);
+    setIsVisible(visible);
   }, [visible]);
 
   const closePopup = () => {
-    setIsVisible(false);
     onClose(false);
   };
 
@@ -26,10 +25,10 @@ const Popup = ({ children, visible, onClose }) => {
       >
         {(state) => (
           <>
-            <Backdrop state={state} data-testid="backdrop" onClick={closePopup} />
-            <PopupContainer ref={nodeRef} state={state} data-testid="popup">
+            <Styled.Backdrop state={state} data-testid="backdrop" onClick={closePopup} />
+            <Styled.PopupContainer ref={nodeRef} state={state} data-testid="popup">
               {children}
-            </PopupContainer>
+            </Styled.PopupContainer>
           </>
         )}
       </Transition>
