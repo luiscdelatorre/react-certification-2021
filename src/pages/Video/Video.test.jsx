@@ -1,22 +1,23 @@
 import React from 'react';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import axios from 'axios';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Route } from 'react-router-dom';
 import VideoPage from './Video.page';
 import detailVideo from '../../mock/youtube-detail-mock.json';
+import relatedVideos from '../../mock/youtube-related-videos-mock.json';
+import channel from '../../mock/youtube-channel-mock.json';
+import favorites from '../../mock/youtube-favorites-mock.json';
 import SearchProvider from '../../providers/Search';
-import OptionsProvider from '../../providers/Options/Options.provider';
+import SessionDataProvider from '../../providers/SessionData/SessionData.provider';
+import AuthProvider from '../../providers/Auth';
 import { storage } from '../../utils/storage';
-import { AUTOPLAY_STORAGE_KEY } from '../../utils/constants';
+import { AUTH_STORAGE_KEY, USER_STORAGE_KEY } from '../../utils/constants';
+import UserMock from '../../mock/user.mock.json';
 
 jest.mock('axios');
 
 describe('Video Page', () => {
-  const response = { data: detailVideo };
-
-  beforeEach(() => {
-    axios.get.mockResolvedValue(response);
-  });
+  beforeEach(() => {});
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -24,83 +25,109 @@ describe('Video Page', () => {
   });
 
   it('Render Video Page', async () => {
-    const video = response.data.items[0];
-
+    const video = detailVideo.items[0];
+    axios.get
+      .mockResolvedValueOnce({ data: detailVideo })
+      .mockResolvedValueOnce({ data: relatedVideos })
+      .mockResolvedValueOnce({ data: channel });
     await act(async () => {
       render(
-        <BrowserRouter>
-          <SearchProvider>
-            <OptionsProvider>
-              <VideoPage />
-            </OptionsProvider>
-          </SearchProvider>
-        </BrowserRouter>
+        <MemoryRouter initialEntries={[`/video/${video.id}`]}>
+          <AuthProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <Route path="/video/:id">
+                  <VideoPage />
+                </Route>
+              </SearchProvider>
+            </SessionDataProvider>
+          </AuthProvider>
+        </MemoryRouter>
       );
     });
 
     expect(screen.queryByTestId('video-player')).toBeInTheDocument();
     expect(screen.queryByTestId('video-info')).toBeInTheDocument();
     expect(screen.queryByTestId('related-videos')).toBeInTheDocument();
-    expect(screen.getAllByText(video.snippet.title)[0].tagName).toBe('H2');
+    expect(screen.getByText(video.snippet.title).tagName).toBe('H2');
   });
 
-  it('Trigger search by clicking tags', async () => {
-    const video = response.data.items[0];
-    window.history.pushState({}, 'Test', `/video/${video.id}`);
+  it('Render Video Favorite Page', async () => {
+    axios.get
+      .mockResolvedValueOnce({ data: detailVideo })
+      .mockResolvedValueOnce({ data: relatedVideos })
+      .mockResolvedValueOnce({ data: channel })
+      .mockResolvedValue({ data: detailVideo });
+
+    const video = detailVideo.items[0];
+    storage.set(AUTH_STORAGE_KEY, true);
+    UserMock.favorites.push(...favorites);
+    storage.set(USER_STORAGE_KEY, UserMock);
 
     await act(async () => {
       render(
-        <BrowserRouter>
-          <SearchProvider>
-            <OptionsProvider>
-              <VideoPage />
-            </OptionsProvider>
-          </SearchProvider>
-        </BrowserRouter>
+        <MemoryRouter initialEntries={[`/favorites/${video.id}`]}>
+          <AuthProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <Route path="/favorites/:id">
+                  <VideoPage />
+                </Route>
+              </SearchProvider>
+            </SessionDataProvider>
+          </AuthProvider>
+        </MemoryRouter>
       );
     });
 
-    const tag = screen.queryAllByTestId('tag-button')[0];
-    expect(window.location.pathname).toBe(`/video/${video.id}`);
-    fireEvent.click(tag);
-    expect(window.location.pathname).toBe('/');
-  });
-
-  it('Trigger autoplay button', async () => {
-    await act(async () => {
-      render(
-        <BrowserRouter>
-          <SearchProvider>
-            <OptionsProvider>
-              <VideoPage />
-            </OptionsProvider>
-          </SearchProvider>
-        </BrowserRouter>
-      );
-    });
-
-    const autoplay = screen.queryByTestId('autoplay');
-    fireEvent.click(autoplay);
-    expect(storage.get(AUTOPLAY_STORAGE_KEY)).toBe(false);
-    fireEvent.click(autoplay);
-    expect(storage.get(AUTOPLAY_STORAGE_KEY)).toBe(true);
+    expect(screen.queryByTestId('related-videos')).toBeInTheDocument();
+    expect(screen.getByText('Your Favorites')).toBeInTheDocument();
   });
 
   it('Should redirect to not found', async () => {
     axios.get.mockResolvedValue({});
+
+    const video = detailVideo.items[0];
     await act(async () => {
       render(
-        <BrowserRouter>
-          <SearchProvider>
-            <OptionsProvider>
-              <VideoPage />
-            </OptionsProvider>
-          </SearchProvider>
-        </BrowserRouter>
+        <MemoryRouter initialEntries={[`/video/${video.id}`]}>
+          <AuthProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <Route path="/video/:id">
+                  <VideoPage />
+                </Route>
+              </SearchProvider>
+            </SessionDataProvider>
+          </AuthProvider>
+        </MemoryRouter>
       );
     });
 
-    expect(window.location.pathname).toBe('/not-found');
+    expect(screen.queryByTestId('video-player')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('related-videos')).not.toBeInTheDocument();
+  });
+
+  it('Should redirect after api call error', async () => {
+    const video = detailVideo.items[0];
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={[`/video/${video.id}`]}>
+          <AuthProvider>
+            <SessionDataProvider>
+              <SearchProvider>
+                <Route path="/video/:id">
+                  <VideoPage />
+                </Route>
+              </SearchProvider>
+            </SessionDataProvider>
+          </AuthProvider>
+        </MemoryRouter>
+      );
+    });
+
+    expect(screen.queryByTestId('video-player')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('related-videos')).not.toBeInTheDocument();
   });
 
   it('Should throw an error if context is not valid in Video component', () => {
@@ -109,12 +136,12 @@ describe('Video Page', () => {
     expect(() =>
       render(
         <BrowserRouter>
-          <OptionsProvider>
+          <SessionDataProvider>
             <VideoPage />
-          </OptionsProvider>
+          </SessionDataProvider>
         </BrowserRouter>
       )
-    ).toThrow(`Can't use "useOptions" without an OptionsProvider!`);
+    ).toThrow(`Can't use "useSessionData" without an SessionDataProvider!`);
     expect(spyContext).toHaveBeenCalled();
   });
 });

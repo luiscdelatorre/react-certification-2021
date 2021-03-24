@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Detail component Validates Video Detail snapshot 1`] = `
+Array [
+  <div
+    className="sc-bqyKva fptmGc"
+  >
+    <iframe
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen={true}
+      className="sc-dQppl hJlJrF"
+      data-testid="video-player"
+      frameBorder="0"
+      src="https://www.youtube-nocookie.com/embed/XXYlFuWEuKI?autoplay=0"
+      title="video"
+    />
+  </div>,
+  <div
+    className="sc-bdfBwQ hjZwmY"
+    data-testid="video-info"
+  >
+    <h2>
+      The Weeknd - Save Your Tears (Official Music Video)
+    </h2>
+    <h5
+      className="sc-gsTCUz jEOKku"
+    >
+      184851371
+       Views
+    </h5>
+    <h5
+      className="sc-gsTCUz jEOKku"
+    >
+      1/5/2021
+    </h5>
+    <h5
+      className="sc-gsTCUz jEOKku"
+    >
+      <button
+        className="sc-hKgILt fhQodh"
+        data-testid="autoplay"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sc-eCssSg ecDNfw"
+        />
+        Autoplay
+      </button>
+    </h5>
+    <ul
+      className="sc-gKsewC ewqdtj"
+    >
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          The
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Weeknd
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Save
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Your
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Tears
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Universal
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Republic
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Records
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          The Weeknd
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          The Weekend
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Weekend
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Abel
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          After Hours
+        </button>
+      </li>
+      <li
+        className="sc-iBPRYJ gBPiqi"
+      >
+        <button
+          className="sc-fubCfw LkUNi"
+          data-testid="tag-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Save Your Tears
+        </button>
+      </li>
+    </ul>
+    <hr />
+    <div>
+      <div
+        className="sc-pFZIQ frprlu"
+      >
+        <img
+          alt="channel"
+          className="sc-jrAGrp goTtHm"
+          src="https://yt3.ggpht.com/ytc/AAUvwnighSReQlmHl_S_vSfvnWBAG5Cw4A0YxtE0tm5OpQ=s88-c-k-c0x00ffffff-no-rj"
+        />
+        <hgroup>
+          <h5
+            className="sc-kEjbxe kLMiMc"
+          >
+            Wizeline
+          </h5>
+          <h6
+            className="sc-iqHYGH fnzqNB"
+          >
+            1330
+             Subscribers
+          </h6>
+        </hgroup>
+      </div>
+      <p
+        className="sc-crrsfI nHSOs"
+      >
+        Official music video by The Weeknd performing "Save Your Tears"– 'After Hours' available everywhere now: http://theweeknd.co/afterhoursYD
+ 
+►Subscribe to The Weeknd on YouTube: http://theweeknd.co/subscribeYD 
+ 
+►Get exclusive merch: https://shop.theweeknd.com/
+ 
+►Follow The Weeknd:
+https://twitter.com/theweeknd 
+https://www.facebook.com/theweeknd 
+https://www.instagram.com/theweeknd 
+https://www.theweeknd.com 
+
+Directed by Cliqua
+Produced by Roisín Audrey Moloney
+Executive Producer: Jerad Anderson
+Production Company: Florence
+Abel’s Costume Designer: Matt Henson
+Prosthetics: Mike Marino, Prosthetic Renaissance
+Director of Photography: Xiaolong Liu
+Production Designer: Annie Sperling
+1st AD: Mike Alberts
+Production Supervisor: Tori Storosh
+Production Supervisor: Joe Keenan
+Assist. Production Supervisor: Linda Nhem
+Cast Costume Designer: Lisa Madonna
+Gaffer: Matt Ardine
+Key Grip: Jon Booker
+Camera Operator Nick Muller
+Steadicam Colin MacDonnell
+Editor: Miles Trahan
+Color: Matt Osbourne @ Company 3
+Sound Design: Christian Stropko
+VFX: Buralqy + MADNOMAD
+Online: Sunset Edit
+Titles: Bradley Pinkerton
+
+Lyrics:
+
+Ooh
+Na na, yeah
+I saw you dancing in a crowded room
+You look so happy when I'm not with you
+But then you saw me, caught you by surprise
+A single teardrop falling from your eye
+I don't know why I run away
+I make you cry when I run away
+You could've asked me why I broke your heart
+You could've told me that you fell apart
+But you walked past me like I wasn't there
+And just pretended like you didn't care
+I don't know why I run away
+I make you cry when I run away
+Take me back 'cause I wanna stay
+Save your tears for another
+Save your tears for another day
+Save your tears for another day
+So
+I made you think that I would always stay
+I said some things that I should never say
+Yeah, I broke your heart like someone did to mine
+And now you won't love me for a second time
+I don't know why I run away, oh, girl
+Said I make you cry when I run away
+Girl, take me back 'cause I wanna stay
+Save your tears for another
+I realize that I'm much too late
+And you deserve someone better
+Save your tears for another day (Ooh, yeah)
+Save your tears for another day (Yeah)
+I don't know why I run away
+I make you cry when I run away
+Save your tears for another day, ooh, girl (Ah)
+I said save your tears for another day (Ah)
+Save your tears for another day (Ah)
+Save your tears for another day (Ah)
+
+#TheWeeknd #SaveYourTears #AfterHours
+
+Music video by The Weeknd performing Save Your Tears. © 2021 The Weeknd XO, Inc., manufactured and marketed by Republic Records, a division of UMG Recordings, Inc.
+
+http://vevo.ly/7MOdnq
+      </p>
+    </div>
+  </div>,
+]
+`;
