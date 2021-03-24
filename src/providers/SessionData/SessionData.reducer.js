@@ -1,4 +1,4 @@
-const OptionsReducer = (state, action) => {
+const SessionDataReducer = (state, action) => {
   let currentTheme = '';
   switch (action.type) {
     case 'SET_THEME':
@@ -15,9 +15,11 @@ const OptionsReducer = (state, action) => {
       return { ...state, autoplay: action.autoplay };
     case 'SET_MENU':
       return { ...state, menuCompact: action.menuCompact };
+    case 'SET_USER':
+      return { ...state, user: action.user };
     default:
       return state;
   }
 };
 
-export default OptionsReducer;
+export default SessionDataReducer;
