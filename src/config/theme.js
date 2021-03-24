@@ -9,12 +9,17 @@ const commonTheme = {
   logoPrimary: colors.purple400,
   logoSecondary: colors.gray100,
   link: colors.blue400,
+  danger: colors.orange400,
   active: colors.green400,
   activeDark: colors.green900,
   tagBackground: colors.orange400,
   tagText: colors.gray100,
   transitionDefault: 'all 200ms ease 0ms',
   transitionFast: 'all 100ms ease 0ms',
+  transitionSlow: 'all 300ms ease-in 0ms',
+  optionIcon: colors.gray100,
+  cardOption: colors.gray100,
+  formError: colors.orange400,
 };
 
 const light = {
@@ -37,6 +42,7 @@ const light = {
   tagSecondaryText: colors.gray300,
   buttonSecondary: colors.gray200,
   buttonSecondaryText: colors.gray400,
+  cardOptions: colors.purple900,
 };
 
 const dark = {
@@ -59,6 +65,7 @@ const dark = {
   tagSecondaryText: colors.blue400,
   buttonSecondary: colors.gray700,
   buttonSecondaryText: colors.gray500,
+  cardOptions: colors.purple400,
 };
 
 export const theme = { light, dark };
