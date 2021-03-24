@@ -1,37 +1,58 @@
-import React from 'react';
-import { IoWifi } from 'react-icons/io5';
+import React, { useState } from 'react';
+import { IoEllipsisVertical, IoWifi } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { Card, Header, Content, Tag, Title, Subtitle, Text } from './VideoCard.styles';
+import Styled from './VideoCard.styles';
+import VideoCardOptions from '../VideoCardOptions';
 
-const VideoCard = ({ id, title, channel, date, thumbnail, liveBroadcastContent }) => {
+const VideoCard = ({ id, title, channel, date, thumbnail, liveBroadcastContent, to }) => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  const toggleOptions = (event) => {
+    event.preventDefault();
+    setShowOptions(!showOptions);
+  };
+
   return (
-    <Card>
-      <Header>
-        <Link to={`/video/${id}`}>
-          <img src={thumbnail} alt={title} />
+    <Styled.Card>
+      <Styled.CardWrapper data-testid="card-wrapper" showOptions={showOptions}>
+        <VideoCardOptions
+          id={id}
+          title={title}
+          channel={channel}
+          date={date}
+          thumbnail={thumbnail}
+          liveBroadcastContent={liveBroadcastContent}
+          onToggleOptions={toggleOptions}
+        />
+        <Link to={`/${to || 'video'}/${id}`}>
+          <Styled.Header>
+            <Styled.OptionsButton
+              type="button"
+              onClick={toggleOptions}
+              showOptions={showOptions}
+              data-testid="show-options"
+            >
+              <IoEllipsisVertical />
+            </Styled.OptionsButton>
+            <img src={thumbnail} alt={title} />
+          </Styled.Header>
+          <Styled.Content>
+            <Styled.Title title={title}>{title}</Styled.Title>
+            <Styled.Subtitle>{channel}</Styled.Subtitle>
+            <Styled.Text>{date}</Styled.Text>
+            {liveBroadcastContent !== 'none' && (
+              <footer>
+                <hr />
+                <Styled.Tag>
+                  <IoWifi />
+                  {liveBroadcastContent}
+                </Styled.Tag>
+              </footer>
+            )}
+          </Styled.Content>
         </Link>
-      </Header>
-      <Content>
-        <Link to={`/video/${id}`}>
-          <Title title={title}>{title}</Title>
-        </Link>
-        <Link to={`/video/${id}`}>
-          <Subtitle>{channel}</Subtitle>
-        </Link>
-        <Text>{date}</Text>
-        {liveBroadcastContent !== 'none' ? (
-          <footer>
-            <hr />
-            <Tag>
-              <IoWifi />
-              {liveBroadcastContent}
-            </Tag>
-          </footer>
-        ) : (
-          ''
-        )}
-      </Content>
-    </Card>
+      </Styled.CardWrapper>
+    </Styled.Card>
   );
 };
 

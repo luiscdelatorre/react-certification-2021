@@ -6,19 +6,58 @@ const Card = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  transition: ${(props) => props.theme.transitionSlow};
   a {
     text-decoration: none;
   }
+  &:hover {
+    box-shadow: 0px 0px 10px -2px ${(props) => props.theme.primary};
+  }
 `;
 
-const Header = styled.div`
+const CardWrapper = styled.div`
+  transition: ${(props) => props.theme.transitionDefault};
+  transform: translateX(${(props) => (props.showOptions ? '-6rem' : '0rem')});
+  background-color: ${(props) => props.theme.cardBackground};
+  position: relative;
+  height: 100%;
+`;
+
+const Header = styled.header`
+  position: relative;
+  overflow: hidden;
+  transition: ${(props) => props.theme.transitionDefault};
+  &::before {
+    content: '';
+    background-color: ${(props) => props.theme.cardOptions};
+    transition: ${(props) => props.theme.transitionSlow};
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 1;
+    ${Card}:hover & {
+      opacity: 0.8;
+    }
+  }
   img {
     height: 15rem;
     width: 100%;
     object-position: center;
     object-fit: cover;
+    z-index: 0;
+    transition: ${(props) => props.theme.transitionSlow};
+    transform: scale3d(1.05, 1.05, 1);
+    ${Card}:hover & {
+      transform: scale3d(1.01, 1.01, 1);
+    }
   }
 `;
+
 const Content = styled.div`
   text-align: left;
   padding: 2rem;
@@ -62,4 +101,32 @@ const Text = styled.p`
   margin: 0;
 `;
 
-export { Card, Header, Content, Tag, Title, Subtitle, Text };
+const OptionsButton = styled.button`
+  color: ${(props) => props.theme.optionIcon};
+  transition: ${(props) => props.theme.transitionSlow};
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  opacity: 0;
+  z-index: 2;
+  transform: scaleY(${(props) => (props.showOptions ? '0' : '1')});
+  ${Card}:hover & {
+    opacity: 1;
+  }
+`;
+
+const Styled = {
+  Card,
+  CardWrapper,
+  Header,
+  Content,
+  Tag,
+  Title,
+  Subtitle,
+  Text,
+  OptionsButton,
+};
+
+export default Styled;
