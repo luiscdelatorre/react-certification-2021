@@ -1,23 +1,13 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../config/colors';
-import device from '../../config/device';
 
 const Container = styled.section`
   text-align: center;
   margin: 0 auto;
   padding: 2rem;
-  width: 100%;
-  /*   laptop: 1024,
-  laptopLg: 1440,
-  desktop: 1600, */
-
-  @media ${device.laptop} {
-    width: 991px;
-  }
-  @media ${device.laptopLg} {
-    width: 1200px;
-  }
+  max-width: 100%;
+  width: 120rem;
 `;
 
 const ButtonLink = styled(Link)`
@@ -38,4 +28,10 @@ const ButtonLink = styled(Link)`
   }
 `;
 
-export { ButtonLink, Container };
+const Title = styled.h1`
+  margin-bottom: 2rem;
+  align-self: flex-start;
+`;
+
+const Styled = { ButtonLink, Container, Title };
+export default Styled;
