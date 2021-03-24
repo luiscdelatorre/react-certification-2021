@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { useHistory } from 'react-router';
 import { useSearch } from '../../providers/Search/Search.provider';
-import { Search, SearchInput } from './Searchbar.styles';
+import Styled from './Searchbar.styles';
 
 const Searchbar = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -35,10 +35,10 @@ const Searchbar = () => {
   };
 
   return (
-    <Search onClick={toggleSearch} data-testid="searchbar">
+    <Styled.Search onClick={toggleSearch} data-testid="searchbar">
       <IoSearchOutline />
       <form onSubmit={submitSearch} data-testid="form-search">
-        <SearchInput
+        <Styled.SearchInput
           onBlur={handleBlur}
           isSearchActive={isSearchActive}
           type="search"
@@ -47,7 +47,7 @@ const Searchbar = () => {
           data-testid="input-search"
         />
       </form>
-    </Search>
+    </Styled.Search>
   );
 };
 

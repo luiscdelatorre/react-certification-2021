@@ -9,24 +9,12 @@ import {
   IoSunnyOutline,
   IoSettingsOutline,
 } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Transition } from 'react-transition-group';
 import { useAuth } from '../../providers/Auth';
-import { useOptions } from '../../providers/Options/Options.provider';
+import { useSessionData } from '../../providers/SessionData/SessionData.provider';
 import Popup from '../Popup';
-import {
-  Container,
-  Header,
-  Content,
-  OptionsList,
-  OptionsListItem,
-  OptionsLink,
-  OptionsButton,
-  CloseButton,
-  UserImage,
-  HeaderButton,
-  ActiveTheme,
-} from './User.styles';
+import Styled from './User.styles';
 
 const User = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -35,7 +23,8 @@ const User = () => {
   const { authenticated, logout } = useAuth();
   const menuRef = useRef(null);
   const subMenuRef = useRef(null);
-  const { state, setTheme } = useOptions();
+  const { state, setTheme } = useSessionData();
+  const location = useLocation();
 
   const toggleUserMenu = (value) => {
     setShowMenu(value);
@@ -61,13 +50,20 @@ const User = () => {
 
   return (
     <>
-      <UserImage
+      <Styled.UserImage
         type="button"
         onClick={() => toggleUserMenu(!showMenu)}
         data-testid="user-default-icon"
       >
-        <IoPersonCircle />
-      </UserImage>
+        {authenticated && state.user ? (
+          <img src={state.user?.avatarUrl} alt="user" data-testid="user-image" />
+        ) : (
+          <>
+            <span />
+            <IoPersonCircle />
+          </>
+        )}
+      </Styled.UserImage>
       <Popup data-testid="user-popup" visible={showMenu} onClose={toggleUserMenu}>
         <Transition
           in={!showSubMenu}
@@ -77,52 +73,55 @@ const User = () => {
           nodeRef={menuRef}
         >
           {(transitionState) => (
-            <Container data-testid="menu" ref={menuRef} state={transitionState}>
-              <Header>
-                <h4>{authenticated ? 'Username' : 'Hello Stranger!'}</h4>
-                <CloseButton
+            <Styled.Container data-testid="menu" ref={menuRef} state={transitionState}>
+              <Styled.Header>
+                <h4>Hello {authenticated ? state.user?.name : 'Stranger'}!</h4>
+                <Styled.CloseButton
                   type="button"
                   onClick={() => toggleUserMenu(false)}
                   data-testid="button-close"
                 />
-              </Header>
-              <Content>
-                <OptionsList>
-                  <OptionsListItem>
-                    <OptionsButton
+              </Styled.Header>
+              <Styled.Content>
+                <Styled.OptionsList>
+                  <Styled.OptionsListItem>
+                    <Styled.OptionsButton
                       type="button"
                       data-testid="button-themes"
                       onClick={() => toggleSubMenu(true)}
                     >
                       <IoColorPaletteOutline /> <span>Theme</span>
-                    </OptionsButton>
-                  </OptionsListItem>
+                    </Styled.OptionsButton>
+                  </Styled.OptionsListItem>
                   {authenticated ? (
-                    <OptionsListItem>
-                      <OptionsLink
+                    <Styled.OptionsListItem>
+                      <Styled.OptionsLink
                         to="/"
                         onClick={deAuthenticate}
                         data-testid="button-logout"
                       >
                         <IoExitOutline />
                         <span>Logout</span>
-                      </OptionsLink>
-                    </OptionsListItem>
+                      </Styled.OptionsLink>
+                    </Styled.OptionsListItem>
                   ) : (
-                    <OptionsListItem>
-                      <OptionsLink
-                        to="/login"
+                    <Styled.OptionsListItem>
+                      <Styled.OptionsLink
+                        to={{
+                          pathname: '/login',
+                          state: { background: location },
+                        }}
                         onClick={() => toggleUserMenu(false)}
                         data-testid="link-login"
                       >
                         <IoEnterOutline />
                         <span>Login</span>
-                      </OptionsLink>
-                    </OptionsListItem>
+                      </Styled.OptionsLink>
+                    </Styled.OptionsListItem>
                   )}
-                </OptionsList>
-              </Content>
-            </Container>
+                </Styled.OptionsList>
+              </Styled.Content>
+            </Styled.Container>
           )}
         </Transition>
         <Transition
@@ -133,59 +132,63 @@ const User = () => {
           nodeRef={subMenuRef}
         >
           {(transitionState) => (
-            <Container data-testid="submenu" ref={subMenuRef} state={transitionState}>
-              <Header>
+            <Styled.Container
+              data-testid="submenu"
+              ref={subMenuRef}
+              state={transitionState}
+            >
+              <Styled.Header>
                 <h4>
-                  <HeaderButton
+                  <Styled.HeaderButton
                     data-testid="button-submenu-back"
                     type="button"
                     onClick={() => toggleSubMenu(false)}
                   >
                     <IoArrowBack />
                     Theme
-                  </HeaderButton>
+                  </Styled.HeaderButton>
                 </h4>
-                <CloseButton
+                <Styled.CloseButton
                   type="button"
                   onClick={() => toggleUserMenu(false)}
                   data-testid="button-submenu-close"
                 />
-              </Header>
-              <Content>
-                <OptionsList>
-                  <OptionsListItem>
-                    <OptionsButton
+              </Styled.Header>
+              <Styled.Content>
+                <Styled.OptionsList>
+                  <Styled.OptionsListItem>
+                    <Styled.OptionsButton
                       data-testid="button-theme-system"
                       type="button"
                       onClick={() => setCurrentTheme('System')}
                     >
                       <IoSettingsOutline /> <span>System Default</span>
-                      {state.theme === 'System' && <ActiveTheme />}
-                    </OptionsButton>
-                  </OptionsListItem>
-                  <OptionsListItem>
-                    <OptionsButton
+                      {state.theme === 'System' && <Styled.ActiveTheme />}
+                    </Styled.OptionsButton>
+                  </Styled.OptionsListItem>
+                  <Styled.OptionsListItem>
+                    <Styled.OptionsButton
                       data-testid="button-theme-dark"
                       type="button"
                       onClick={() => setCurrentTheme('Dark')}
                     >
                       <IoMoonOutline /> <span>Dark</span>
-                      {state.theme === 'Dark' && <ActiveTheme />}
-                    </OptionsButton>
-                  </OptionsListItem>
-                  <OptionsListItem>
-                    <OptionsButton
+                      {state.theme === 'Dark' && <Styled.ActiveTheme />}
+                    </Styled.OptionsButton>
+                  </Styled.OptionsListItem>
+                  <Styled.OptionsListItem>
+                    <Styled.OptionsButton
                       data-testid="button-theme-light"
                       type="button"
                       onClick={() => setCurrentTheme('Light')}
                     >
                       <IoSunnyOutline /> <span>Light</span>
-                      {state.theme === 'Light' && <ActiveTheme />}
-                    </OptionsButton>
-                  </OptionsListItem>
-                </OptionsList>
-              </Content>
-            </Container>
+                      {state.theme === 'Light' && <Styled.ActiveTheme />}
+                    </Styled.OptionsButton>
+                  </Styled.OptionsListItem>
+                </Styled.OptionsList>
+              </Styled.Content>
+            </Styled.Container>
           )}
         </Transition>
       </Popup>

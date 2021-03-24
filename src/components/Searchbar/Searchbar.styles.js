@@ -12,8 +12,6 @@ const Search = styled.div`
     z-index: 1;
     position: absolute;
     left: 1.5rem;
-    @media ${device.laptop} {
-    }
   }
 `;
 
@@ -39,4 +37,5 @@ const SearchInput = styled.input`
   }
 `;
 
-export { Search, SearchInput };
+const Styled = { Search, SearchInput };
+export default Styled;

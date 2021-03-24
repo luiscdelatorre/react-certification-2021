@@ -14,7 +14,7 @@ const UserImage = styled.button`
   &:active {
     animation-name: unset;
   }
-  &::before {
+  span {
     content: '';
     position: absolute;
     height: 4rem;
@@ -26,6 +26,12 @@ const UserImage = styled.button`
   svg {
     color: ${(props) => props.theme.avatarColor};
     z-index: 1;
+  }
+  img {
+    width: 5rem;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
   }
 `;
 
@@ -171,7 +177,7 @@ const ActiveTheme = styled.span`
   margin-left: 1rem;
 `;
 
-export {
+const Styled = {
   UserImage,
   Container,
   Header,
@@ -184,3 +190,4 @@ export {
   HeaderButton,
   ActiveTheme,
 };
+export default Styled;

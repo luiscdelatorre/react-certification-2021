@@ -9,7 +9,7 @@ exports[`Header component Validates Header snapshot 1`] = `
     className="sc-kstrdz sc-hBEYos jqiJcG iZrsmI"
   >
     <button
-      className="sc-bkzZxe FxGEV"
+      className="sc-bkzZxe jpzlAp"
       data-testid="button-menu"
       onClick={[Function]}
     />
@@ -45,7 +45,7 @@ exports[`Header component Validates Header snapshot 1`] = `
     className="sc-kstrdz sc-fodVxV jqiJcG dnhjTT"
   >
     <div
-      className="sc-bdfBwQ gmamkS"
+      className="sc-bdfBwQ hXgQet"
       data-testid="searchbar"
       onClick={[Function]}
     >
@@ -95,11 +95,12 @@ exports[`Header component Validates Header snapshot 1`] = `
     className="sc-kstrdz sc-fFubgz jqiJcG bBSCrS"
   >
     <button
-      className="sc-eCssSg byGTwv"
+      className="sc-eCssSg dRNJst"
       data-testid="user-default-icon"
       onClick={[Function]}
       type="button"
     >
+      <span />
       <svg
         fill="currentColor"
         height="1em"

@@ -1,45 +1,38 @@
 import React from 'react';
 import { IoLogoYoutube } from 'react-icons/io5';
-import { useOptions } from '../../providers/Options/Options.provider';
+import { useSessionData } from '../../providers/SessionData/SessionData.provider';
 
 import Searchbar from '../Searchbar';
 import User from '../User';
-import {
-  HeaderCenter,
-  HeaderContainer,
-  HeaderLeft,
-  HeaderRight,
-  Logo,
-  MenuHamburger,
-} from './Header.styles';
+import Styled from './Header.styles';
 
 const Header = () => {
-  const { state, setMenu } = useOptions();
+  const { state, setMenu } = useSessionData();
 
   const toggleMenu = () => {
     setMenu(!state.menuCompact);
   };
 
   return (
-    <HeaderContainer data-testid="header">
-      <HeaderLeft>
-        <MenuHamburger
+    <Styled.Header data-testid="header">
+      <Styled.HeaderLeft>
+        <Styled.MenuHamburger
           isMenuExpanded={!state.menuCompact}
           onClick={toggleMenu}
           data-testid="button-menu"
         />
-        <Logo to="/">
+        <Styled.Logo to="/">
           <IoLogoYoutube />
           <span>YuTuv</span>
-        </Logo>
-      </HeaderLeft>
-      <HeaderCenter>
+        </Styled.Logo>
+      </Styled.HeaderLeft>
+      <Styled.HeaderCenter>
         <Searchbar />
-      </HeaderCenter>
-      <HeaderRight>
+      </Styled.HeaderCenter>
+      <Styled.HeaderRight>
         <User />
-      </HeaderRight>
-    </HeaderContainer>
+      </Styled.HeaderRight>
+    </Styled.Header>
   );
 };
 
