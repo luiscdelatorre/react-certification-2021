@@ -11,7 +11,7 @@ function shuffleArray(array) {
   const newArray = [...array];
   for (let i = array.length - 1; i > 0; i -= 1) {
     const j = random(i + 1);
-    [newArray[i], newArray[j]] = [array[j], array[i]];
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
   return newArray;
 }

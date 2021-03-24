@@ -19,6 +19,7 @@ describe('Utils fns', () => {
     it('Should return an array in random order', () => {
       const array = [1, 2, 3, 4, 5];
       expect(shuffleArray(array)).not.toEqual(array);
+      expect(shuffleArray(array).length).toEqual(array.length);
     });
   });
 });
