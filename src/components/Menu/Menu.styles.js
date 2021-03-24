@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import colors from '../../config/colors';
 import device from '../../config/device';
 
-const MenuContainer = styled.nav`
+const Menu = styled.nav`
   grid-area: menu;
   background-color: ${(props) => props.theme.menuBackground};
   padding: 1rem;
@@ -105,4 +105,5 @@ const MenuIcon = styled.div`
   }
 `;
 
-export { MenuContainer, MenuList, MenuItem, MenuLink, MenuIcon };
+const Styled = { Menu, MenuList, MenuItem, MenuLink, MenuIcon };
+export default Styled;

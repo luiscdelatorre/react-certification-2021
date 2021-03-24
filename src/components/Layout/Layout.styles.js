@@ -26,4 +26,5 @@ const MainContent = styled.main`
   overflow-y: auto;
 `;
 
-export { Container, MainContent };
+const Styled = { Container, MainContent };
+export default Styled;
