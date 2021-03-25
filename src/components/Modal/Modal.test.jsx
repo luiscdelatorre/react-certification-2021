@@ -11,14 +11,14 @@ import { BrowserRouter } from 'react-router-dom';
 import Modal from './Modal.component';
 
 describe('Modal Component', () => {
-  it('Popup should be hidden as initial state', () => {
+  it('Modal should be hidden as initial state', () => {
     const { container } = render(<Modal title="Foo" visible={false} />);
     const modal = queryByTestId(container, 'modal');
 
     expect(modal).toBeNull();
   });
 
-  it('Popup should be visible as initial state', () => {
+  it('Modal should be visible as initial state', () => {
     const { container } = render(<Modal title="Foo" visible />);
     const modal = queryByTestId(container, 'modal');
 
@@ -35,7 +35,7 @@ describe('Modal Component', () => {
     expect(screen.getByText('Bar')).toBeInTheDocument();
   });
 
-  it('Should close modal', async () => {
+  it('Should close modal on click close button', async () => {
     await act(async () =>
       render(
         <BrowserRouter>

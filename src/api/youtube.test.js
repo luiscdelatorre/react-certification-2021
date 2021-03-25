@@ -33,7 +33,7 @@ describe('Youtube Api', () => {
 
     YoutubeApi.channel('channel#123').then((data) => expect(data).toEqual(channel));
   });
-  it('should fetch channel info', () => {
+  it('should fetch trending videos', () => {
     const response = { data: trending };
     axios.get.mockResolvedValue(response);
 

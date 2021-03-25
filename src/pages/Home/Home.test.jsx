@@ -23,7 +23,7 @@ describe('Home Page', () => {
     axios.mockRestore();
   });
 
-  it('Should display login option if user is not authenticated', async () => {
+  it('Should display login option if user is not authenticated and videos list', async () => {
     await act(async () => {
       render(
         <BrowserRouter>
@@ -42,7 +42,7 @@ describe('Home Page', () => {
       searchResult.items.length
     );
     expect(screen.queryByTestId('login-button')).toBeInTheDocument();
-    expect(screen.queryByTestId('secret-button')).toBeFalsy();
+    expect(screen.queryByTestId('favorites-button')).toBeFalsy();
   });
 
   it('Should display login option if user is authenticated', async () => {
@@ -62,9 +62,6 @@ describe('Home Page', () => {
       );
     });
 
-    expect(screen.queryByTestId('search-list').children.length).toBe(
-      searchResult.items.length
-    );
     expect(screen.queryByTestId('login-button')).toBeFalsy();
     expect(screen.queryByTestId('favorites-button')).toBeInTheDocument();
     expect(screen.queryByTestId('trending-button')).toBeInTheDocument();

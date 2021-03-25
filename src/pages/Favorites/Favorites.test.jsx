@@ -33,7 +33,7 @@ describe('Favorites Page', () => {
     ).toBeInTheDocument();
   });
 
-  it('Should display favorites', async () => {
+  it('Should display favorite videos', async () => {
     storage.set(AUTH_STORAGE_KEY, true);
     userMock.favorites = favoritesMock;
     storage.set(USER_STORAGE_KEY, userMock);

@@ -42,7 +42,7 @@ describe('Routes component', () => {
       state: {
         background: {
           hash: '',
-          key: 'hachhz',
+          key: 'foo',
           pathname: '/',
           search: '',
           state: undefined,

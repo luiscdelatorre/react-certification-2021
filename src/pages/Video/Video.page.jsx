@@ -24,7 +24,6 @@ const VideoPage = () => {
         .then((detail) => {
           if (!detail || !detail.items.length) {
             history.push('/not-found');
-            console.log(window.location);
           } else {
             setVideo(detail.items[0]);
             const { channelId } = detail.items[0]?.snippet;

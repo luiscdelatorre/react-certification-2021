@@ -21,7 +21,7 @@ describe('Trending Page', () => {
     axios.mockRestore();
   });
 
-  it('Should display login option if user is not authenticated', async () => {
+  it('Should display trending videos list', async () => {
     await act(async () => {
       render(
         <BrowserRouter>
@@ -36,7 +36,7 @@ describe('Trending Page', () => {
       );
     });
 
-    expect(screen.queryByTestId('search-list').children.length).toBe(
+    expect(screen.queryByTestId('trending-list').children.length).toBe(
       trending.items.length
     );
     expect(screen.queryByText('Most popular videos')).toBeInTheDocument();

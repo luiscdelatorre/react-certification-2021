@@ -33,7 +33,7 @@ const TrendingPage = () => {
       {error ? (
         <Styled.Error>{error}</Styled.Error>
       ) : (
-        <Styled.CardList data-testid="search-list">
+        <Styled.CardList data-testid="trending-list">
           {trendingVideos.map(
             ({
               etag,
