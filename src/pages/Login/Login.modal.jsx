@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { useAuth } from '../../providers/Auth';
 import { useSessionData } from '../../providers/SessionData/SessionData.provider';
 import { loginApi } from '../../api/login.api';
-import Modal from '../Modal';
+import Modal from '../../components/Modal';
 import Styled from './Login.styles';
 
 const LoginModal = () => {

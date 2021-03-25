@@ -7,7 +7,7 @@ import Private from '../Private';
 import VideoPage from '../../pages/Video';
 import FavoritesPage from '../../pages/Favorites';
 import TrendingPage from '../../pages/Trending';
-import LoginModal from '../Login';
+import LoginModal from '../../pages/Login';
 
 const Routes = () => {
   const location = useLocation();
