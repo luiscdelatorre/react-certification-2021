@@ -37,4 +37,5 @@ const Container = styled.section`
   text-align: center;
 `;
 
-export { HomeLink, Container, ButtonContainer, NotFoundImage };
+const Styled = { HomeLink, Container, ButtonContainer, NotFoundImage };
+export default Styled;

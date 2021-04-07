@@ -1,46 +1,98 @@
 import React from 'react';
-import { fireEvent, getByTestId, render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 import AuthProvider from '../../providers/Auth';
-import LoginPage from './Login.page';
+import LoginModal from './Login.modal';
+import SessionDataProvider from '../../providers/SessionData/SessionData.provider';
+import { storage } from '../../utils/storage';
+import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import * as LoginApiFile from '../../api/login.api';
 
-describe('Login Page', () => {
+describe('Login Modal', () => {
   it('Check welcome message after render', () => {
     render(
       <AuthProvider>
-        <LoginPage />
+        <SessionDataProvider>
+          <LoginModal />
+        </SessionDataProvider>
       </AuthProvider>
     );
 
     expect(screen.queryByText('Welcome back!')).toBeInTheDocument();
   });
 
-  it('Should trigger login event', () => {
-    const { container } = render(
+  it('Should trigger login event and display error', async () => {
+    render(
       <BrowserRouter>
         <AuthProvider>
-          <LoginPage />
+          <SessionDataProvider>
+            <LoginModal />
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
 
-    const button = getByTestId(container, 'btn-login');
-    const event = fireEvent.click(button);
+    const button = screen.getByTestId('btn-login');
+    await act(async () => fireEvent.click(button));
 
-    expect(event).toBeTruthy();
+    expect(
+      await waitFor(() => screen.queryByText('Username and password are required'))
+    ).toBeInTheDocument();
   });
 
-  it('Validates Layout snapshot', () => {
-    const component = renderer.create(
-      <BrowserRouter>
-        <AuthProvider>
-          <LoginPage />
-        </AuthProvider>
-      </BrowserRouter>
-    );
-    const tree = component.toJSON();
+  it('Should trigger login event and display credentials error', async () => {
+    jest
+      .spyOn(LoginApiFile, 'loginApi')
+      .mockRejectedValue(new Error('Custom Login Error'));
 
-    expect(tree).toMatchSnapshot();
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <AuthProvider>
+            <SessionDataProvider>
+              <LoginModal />
+            </SessionDataProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      )
+    );
+    const username = screen.getByTestId('username');
+    const password = screen.getByTestId('password');
+
+    userEvent.type(username, 'foo');
+    userEvent.type(password, 'bar');
+
+    const button = screen.getByTestId('btn-login');
+    await act(async () => fireEvent.click(button));
+    expect(screen.queryByText('Custom Login Error')).toBeInTheDocument();
+  });
+
+  it('Should trigger login event', async () => {
+    jest.spyOn(LoginApiFile, 'loginApi').mockResolvedValue({ name: 'user' });
+    window.history.pushState({}, 'Test Title', '/foo');
+    storage.set(AUTH_STORAGE_KEY, false);
+    expect(window.location.pathname).toBe('/foo');
+
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <AuthProvider>
+            <SessionDataProvider>
+              <LoginModal />
+            </SessionDataProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      )
+    );
+    const username = screen.getByTestId('username');
+    const password = screen.getByTestId('password');
+
+    userEvent.type(username, 'foo');
+    userEvent.type(password, 'bar');
+
+    const button = screen.getByTestId('btn-login');
+    await act(async () => fireEvent.click(button));
+    expect(window.location.pathname).toBe('/secret');
   });
 });

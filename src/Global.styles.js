@@ -15,7 +15,6 @@ html {
   font-family: sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -47,6 +46,7 @@ p {
 
 a{
   color: ${(props) => props.theme.link};
+  text-decoration: none;
   &:focus {
     outline: none;
     box-shadow: 0 0 0.1rem -0.05rem ${(props) => props.theme.link};
@@ -119,7 +119,6 @@ button{
   &:focus {
     outline: none;
     box-shadow: none;
-    // box-shadow: 0 0 0.8rem 0.1rem ${(props) => props.theme.primary};
   }
   &:active {
     animation-name: button-animation;
@@ -216,6 +215,15 @@ img{
     position: absolute;
     top: 0;
     transform: scale(0, 0);
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+   transform: rotate(360deg);
   }
 }
 `;

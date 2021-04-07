@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { YoutubeApi } from './youtube';
+import { YoutubeApi } from './youtube.api';
 import searchResult from '../mock/youtube-videos-mock.json';
 import realatedVideos from '../mock/youtube-related-videos-mock.json';
 import detailVideo from '../mock/youtube-detail-mock.json';
 import channel from '../mock/youtube-channel-mock.json';
+import trending from '../mock/youtube-trending-mock.json';
 
 jest.mock('axios');
 
@@ -31,5 +32,11 @@ describe('Youtube Api', () => {
     axios.get.mockResolvedValue(response);
 
     YoutubeApi.channel('channel#123').then((data) => expect(data).toEqual(channel));
+  });
+  it('should fetch trending videos', () => {
+    const response = { data: trending };
+    axios.get.mockResolvedValue(response);
+
+    YoutubeApi.trending().then((data) => expect(data).toEqual(trending));
   });
 });

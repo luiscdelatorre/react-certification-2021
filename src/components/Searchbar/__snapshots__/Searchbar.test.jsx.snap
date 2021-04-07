@@ -2,7 +2,7 @@
 
 exports[`Searchbar component Validates VideoCard snapshot 1`] = `
 <div
-  className="sc-bdfBwQ gmamkS"
+  className="sc-bdfBwQ hXgQet"
   data-testid="searchbar"
   onClick={[Function]}
 >

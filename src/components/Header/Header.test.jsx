@@ -3,19 +3,22 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import AuthProvider from '../../providers/Auth';
-import OptionsProvider from '../../providers/Options/Options.provider';
+import SessionDataProvider from '../../providers/SessionData/SessionData.provider';
 import SearchProvider from '../../providers/Search';
 import Header from './Header.component';
+import { storage } from '../../utils/storage';
+import { MENU_STORAGE_KEY } from '../../utils/constants';
 
 describe('Header component', () => {
   it('Should expand menu size on menu button click', () => {
+    storage.set(MENU_STORAGE_KEY, 'compact');
     const { rerender } = render(
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <OptionsProvider>
+            <SessionDataProvider>
               <Header />
-            </OptionsProvider>
+            </SessionDataProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
@@ -28,14 +31,15 @@ describe('Header component', () => {
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <OptionsProvider>
+            <SessionDataProvider>
               <Header />
-            </OptionsProvider>
+            </SessionDataProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
     expect(initialClassName).not.toBe(button.className);
+    expect(storage.get(MENU_STORAGE_KEY)).not.toBe('compact');
   });
 
   it('Validates Header snapshot', () => {
@@ -43,9 +47,9 @@ describe('Header component', () => {
       <BrowserRouter>
         <AuthProvider>
           <SearchProvider>
-            <OptionsProvider>
+            <SessionDataProvider>
               <Header />
-            </OptionsProvider>
+            </SessionDataProvider>
           </SearchProvider>
         </AuthProvider>
       </BrowserRouter>

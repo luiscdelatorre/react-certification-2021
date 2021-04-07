@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import device from '../../config/device';
 
-const HeaderContainer = styled.header`
+const Header = styled.header`
   grid-area: header;
   background-color: ${(props) => props.theme.menuBackground};
   display: flex;
@@ -65,11 +65,11 @@ const MenuHamburger = styled.button`
   &::before,
   &::after {
     content: '';
+    transition: ${(props) => props.theme.transitionFast};
     background-color: ${(props) => props.theme.menuButton};
+    width: ${(props) => (props.isMenuExpanded ? '3rem' : '2rem')};
     display: block;
     height: 0.3rem;
-    width: ${(props) => (props.isMenuExpanded ? '3rem' : '2rem')};
-    transition: ${(props) => props.theme.transitionFast};
   }
   &:active {
     animation-name: '';
@@ -114,4 +114,12 @@ const Logo = styled(Link)`
   }
 `;
 
-export { HeaderContainer, HeaderLeft, HeaderRight, HeaderCenter, Logo, MenuHamburger };
+const Styled = {
+  Header,
+  HeaderLeft,
+  HeaderRight,
+  HeaderCenter,
+  Logo,
+  MenuHamburger,
+};
+export default Styled;

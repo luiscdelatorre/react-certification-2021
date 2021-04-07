@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags List component Validates TagsList snapshot 1`] = `
+<ul
+  className="sc-bdfBwQ gcWJNd"
+>
+  <li
+    className="sc-gsTCUz kZitFI"
+  >
+    <button
+      className="sc-dlfnbm bPibKy"
+      data-testid="tag-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Foo
+    </button>
+  </li>
+  <li
+    className="sc-gsTCUz kZitFI"
+  >
+    <button
+      className="sc-dlfnbm bPibKy"
+      data-testid="tag-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Bar
+    </button>
+  </li>
+  <li
+    className="sc-gsTCUz kZitFI"
+  >
+    <button
+      className="sc-dlfnbm bPibKy"
+      data-testid="tag-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Baz
+    </button>
+  </li>
+</ul>
+`;

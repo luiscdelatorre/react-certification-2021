@@ -1,87 +1,108 @@
 import React, { useEffect, useState } from 'react';
-import { IoEnterOutline, IoFlame } from 'react-icons/io5';
-import VideoCard from '../../components/VideoCard';
+import { IoEnterOutline, IoFlame, IoHeart } from 'react-icons/io5';
+import { useLocation } from 'react-router';
 import { useAuth } from '../../providers/Auth';
-import {
-  ButtonLinkWarning,
-  ButtonLinkInfo,
-  ButtonsContainer,
-  Card,
-  CardList,
-  Container,
-  Header,
-} from './Home.styles';
+import VideoCard from '../../components/VideoCard';
+import Styled from './Home.styles';
 import { formatDate } from '../../utils/fns';
-import { YoutubeApi } from '../../api/youtube';
+import { YoutubeApi } from '../../api/youtube.api';
 import { useSearch } from '../../providers/Search/Search.provider';
+import { useSessionData } from '../../providers/SessionData/SessionData.provider';
 
 const HomePage = () => {
   const [searchResults, setSearchResults] = useState({ items: [] });
+  const [error, setError] = useState(null);
   const { searchQuery } = useSearch();
   const { authenticated } = useAuth();
+  const { state } = useSessionData();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = () => {
-      YoutubeApi.search(searchQuery).then((result) => {
-        setSearchResults(result);
-      });
+      YoutubeApi.search(searchQuery)
+        .then((result) => {
+          setSearchResults(result);
+        })
+        .catch(() => {
+          setError(
+            `The request cannot be completed because you have exceeded your quota.
+            Please try again later.`
+          );
+        });
     };
     fetchData();
   }, [searchQuery]);
 
   return (
-    <Container>
-      <Header>
-        <h1>Hello stranger!</h1>
+    <Styled.Container>
+      <Styled.Hero>
         {authenticated ? (
           <>
+            <h1>Hello {state.user?.name}!</h1>
             <h2>Good to have you back</h2>
-            <ButtonsContainer>
-              <ButtonLinkInfo to="/secret" data-testid="secret-button">
+            <Styled.ButtonsContainer>
+              <Styled.ButtonLinkInfo to="/favorites" data-testid="favorites-button">
+                <IoHeart />
+                My Favorites
+              </Styled.ButtonLinkInfo>
+              <Styled.ButtonLinkWarning to="/trending" data-testid="trending-button">
                 <IoFlame />
-                Show me something cool
-              </ButtonLinkInfo>
-            </ButtonsContainer>
+                Trending
+              </Styled.ButtonLinkWarning>
+            </Styled.ButtonsContainer>
           </>
         ) : (
-          <ButtonsContainer>
-            <ButtonLinkWarning to="/login" data-testid="login-button">
-              <IoEnterOutline />
-              Let me in
-            </ButtonLinkWarning>
-          </ButtonsContainer>
+          <>
+            <h1>Hello stranger!</h1>
+            <Styled.ButtonsContainer>
+              <Styled.ButtonLinkWarning
+                to={{
+                  pathname: '/login',
+                  state: { background: location },
+                }}
+                data-testid="login-button"
+              >
+                <IoEnterOutline />
+                Let me in
+              </Styled.ButtonLinkWarning>
+            </Styled.ButtonsContainer>
+          </>
         )}
-      </Header>
+      </Styled.Hero>
       <hr />
-      <CardList data-testid="search-list">
-        {searchResults?.items?.map(
-          ({
-            etag,
-            id,
-            snippet: {
-              title,
-              channelTitle,
-              publishTime,
-              thumbnails,
-              liveBroadcastContent,
-            },
-          }) => {
-            return (
-              <Card key={etag}>
-                <VideoCard
-                  id={id.videoId || id}
-                  title={title}
-                  channel={channelTitle}
-                  date={formatDate(publishTime)}
-                  thumbnail={thumbnails.medium.url}
-                  liveBroadcastContent={liveBroadcastContent}
-                />
-              </Card>
-            );
-          }
-        )}
-      </CardList>
-    </Container>
+      {error ? (
+        <Styled.Error>{error}</Styled.Error>
+      ) : (
+        <Styled.CardList data-testid="search-list">
+          {searchResults?.items?.map(
+            ({
+              etag,
+              id,
+              snippet: {
+                title,
+                channelTitle,
+                publishTime,
+                thumbnails,
+                liveBroadcastContent,
+              },
+            }) => {
+              return (
+                <Styled.CardListItem key={etag}>
+                  <VideoCard
+                    id={id.videoId || id}
+                    title={title}
+                    channel={channelTitle}
+                    date={formatDate(publishTime)}
+                    thumbnail={thumbnails.medium.url}
+                    liveBroadcastContent={liveBroadcastContent}
+                  />
+                </Styled.CardListItem>
+              );
+            }
+          )}
+        </Styled.CardList>
+      )}
+    </Styled.Container>
   );
 };
 

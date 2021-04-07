@@ -2,19 +2,24 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from '../../providers/Auth';
-import OptionsProvider from '../../providers/Options/Options.provider';
-import { AUTH_STORAGE_KEY, THEME_STORAGE_KEY } from '../../utils/constants';
+import SessionDataProvider from '../../providers/SessionData/SessionData.provider';
+import {
+  AUTH_STORAGE_KEY,
+  THEME_STORAGE_KEY,
+  USER_STORAGE_KEY,
+} from '../../utils/constants';
 import { storage } from '../../utils/storage';
 import User from './User.component';
+import UserMock from '../../mock/user.mock.json';
 
 describe('User Component', () => {
   it('should display default user image', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -27,9 +32,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -44,9 +49,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -64,9 +69,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -86,9 +91,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -106,9 +111,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -130,9 +135,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -154,9 +159,9 @@ describe('User Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <OptionsProvider>
+          <SessionDataProvider>
             <User />
-          </OptionsProvider>
+          </SessionDataProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -172,5 +177,21 @@ describe('User Component', () => {
     expect(storage.get(THEME_STORAGE_KEY)).toBe('Dark');
     fireEvent.click(screen.queryByTestId('button-theme-light'));
     expect(storage.get(THEME_STORAGE_KEY)).toBe('Light');
+  });
+
+  it('Should render user image', async () => {
+    storage.set(AUTH_STORAGE_KEY, true);
+    storage.set(USER_STORAGE_KEY, UserMock);
+    render(
+      <BrowserRouter>
+        <AuthProvider>
+          <SessionDataProvider>
+            <User />
+          </SessionDataProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    );
+    const image = screen.queryByTestId('user-image');
+    expect(image.src).toEqual(UserMock.avatarUrl);
   });
 });

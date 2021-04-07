@@ -2,19 +2,20 @@ import React from 'react';
 import {
   IoEnterOutline,
   IoExitOutline,
+  IoFlame,
+  IoHeart,
   IoHomeOutline,
-  IoOptions,
-  IoStar,
 } from 'react-icons/io5';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { useAuth } from '../../providers/Auth';
-import { useOptions } from '../../providers/Options/Options.provider';
-import { MenuContainer, MenuIcon, MenuItem, MenuLink, MenuList } from './Menu.styles';
+import { useSessionData } from '../../providers/SessionData/SessionData.provider';
+import Styled from './Menu.styles';
 
 const Menu = () => {
   const history = useHistory();
   const { authenticated, logout } = useAuth();
-  const { state } = useOptions();
+  const { state } = useSessionData();
+  const location = useLocation();
 
   const deAuthenticate = (event) => {
     event.preventDefault();
@@ -23,52 +24,64 @@ const Menu = () => {
   };
 
   return (
-    <MenuContainer data-testid="menu">
-      <MenuList>
-        <MenuItem>
-          <MenuLink to="/" exact>
-            <MenuIcon isExpanded={!state.menuCompact}>
+    <Styled.Menu data-testid="menu">
+      <Styled.MenuList>
+        <Styled.MenuItem>
+          <Styled.MenuLink to="/" exact>
+            <Styled.MenuIcon isExpanded={!state.menuCompact}>
               <IoHomeOutline />
               <span>Home</span>
-            </MenuIcon>
-          </MenuLink>
-        </MenuItem>
-        <MenuItem disabled>
-          <MenuIcon isExpanded={!state.menuCompact}>
-            <IoStar />
-            <span>Favorites</span>
-          </MenuIcon>
-        </MenuItem>
-        <MenuItem disabled>
-          <MenuIcon isExpanded={!state.menuCompact}>
-            <IoOptions />
-            <span>Options</span>
-          </MenuIcon>
-        </MenuItem>
-        <MenuItem>
+            </Styled.MenuIcon>
+          </Styled.MenuLink>
+        </Styled.MenuItem>
+        <Styled.MenuItem>
+          <Styled.MenuLink to="/trending" exact>
+            <Styled.MenuIcon isExpanded={!state.menuCompact}>
+              <IoFlame />
+              <span>Trending</span>
+            </Styled.MenuIcon>
+          </Styled.MenuLink>
+        </Styled.MenuItem>
+        {authenticated && (
+          <Styled.MenuItem>
+            <Styled.MenuLink to="/favorites">
+              <Styled.MenuIcon isExpanded={!state.menuCompact}>
+                <IoHeart />
+                <span>Favorites</span>
+              </Styled.MenuIcon>
+            </Styled.MenuLink>
+          </Styled.MenuItem>
+        )}
+        <Styled.MenuItem>
           {authenticated ? (
-            <MenuLink
+            <Styled.MenuLink
               to="/login"
               exact
               onClick={deAuthenticate}
               data-testid="button-logout"
             >
-              <MenuIcon isExpanded={!state.menuCompact}>
+              <Styled.MenuIcon isExpanded={!state.menuCompact}>
                 <IoExitOutline />
                 <span>Logout</span>
-              </MenuIcon>
-            </MenuLink>
+              </Styled.MenuIcon>
+            </Styled.MenuLink>
           ) : (
-            <MenuLink to="/login" exact>
-              <MenuIcon isExpanded={!state.menuCompact}>
+            <Styled.MenuLink
+              to={{
+                pathname: '/login',
+                state: { background: location },
+              }}
+              exact
+            >
+              <Styled.MenuIcon isExpanded={!state.menuCompact}>
                 <IoEnterOutline />
                 <span>Login</span>
-              </MenuIcon>
-            </MenuLink>
+              </Styled.MenuIcon>
+            </Styled.MenuLink>
           )}
-        </MenuItem>
-      </MenuList>
-    </MenuContainer>
+        </Styled.MenuItem>
+      </Styled.MenuList>
+    </Styled.Menu>
   );
 };
 

@@ -27,20 +27,4 @@ describe('Main App Component', () => {
     expect(screen.queryByTestId('main-content')).toBeInTheDocument();
     expect(screen.getByText('Hello stranger!')).toBeInTheDocument();
   });
-
-  it('should render welcome message when matchMedia matches with dark mode', async () => {
-    window.matchMedia = () => ({
-      matches: true,
-    });
-    jest.spyOn(window, 'matchMedia');
-
-    await act(async () => {
-      render(<App />);
-    });
-
-    expect(screen.queryByTestId('header')).toBeInTheDocument();
-    expect(screen.queryByTestId('menu')).toBeInTheDocument();
-    expect(screen.queryByTestId('main-content')).toBeInTheDocument();
-    expect(screen.getByText('Hello stranger!')).toBeInTheDocument();
-  });
 });
